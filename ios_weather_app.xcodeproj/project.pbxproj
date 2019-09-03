@@ -12,6 +12,11 @@
 		F729D3BC231E15AA003A2490 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F729D3BA231E15AA003A2490 /* Main.storyboard */; };
 		F729D3BE231E15AB003A2490 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F729D3BD231E15AB003A2490 /* Assets.xcassets */; };
 		F729D3C1231E15AB003A2490 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F729D3BF231E15AB003A2490 /* LaunchScreen.storyboard */; };
+		F729D3CC231E16C6003A2490 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729D3CA231E16C6003A2490 /* Map.swift */; };
+		F729D3CD231E16C6003A2490 /* Map.xib in Resources */ = {isa = PBXBuildFile; fileRef = F729D3CB231E16C6003A2490 /* Map.xib */; };
+		F729D3CF231E16F2003A2490 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729D3CE231E16F2003A2490 /* Coordinator.swift */; };
+		F729D3D1231E1743003A2490 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729D3D0231E1743003A2490 /* AppCoordinator.swift */; };
+		F729D3D3231E1854003A2490 /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729D3D2231E1854003A2490 /* MapCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		F729D3BD231E15AB003A2490 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F729D3C0231E15AB003A2490 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F729D3C2231E15AB003A2490 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F729D3CA231E16C6003A2490 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		F729D3CB231E16C6003A2490 /* Map.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Map.xib; sourceTree = "<group>"; };
+		F729D3CE231E16F2003A2490 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		F729D3D0231E1743003A2490 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		F729D3D2231E1854003A2490 /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +64,7 @@
 		F729D3B5231E15AA003A2490 /* ios_weather_app */ = {
 			isa = PBXGroup;
 			children = (
+				F729D3C8231E167F003A2490 /* Scenes */,
 				F729D3B6231E15AA003A2490 /* AppDelegate.swift */,
 				F729D3B8231E15AA003A2490 /* ViewController.swift */,
 				F729D3BA231E15AA003A2490 /* Main.storyboard */,
@@ -62,6 +73,26 @@
 				F729D3C2231E15AB003A2490 /* Info.plist */,
 			);
 			path = ios_weather_app;
+			sourceTree = "<group>";
+		};
+		F729D3C8231E167F003A2490 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				F729D3C9231E1697003A2490 /* Map */,
+				F729D3CE231E16F2003A2490 /* Coordinator.swift */,
+				F729D3D0231E1743003A2490 /* AppCoordinator.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		F729D3C9231E1697003A2490 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				F729D3CA231E16C6003A2490 /* Map.swift */,
+				F729D3CB231E16C6003A2490 /* Map.xib */,
+				F729D3D2231E1854003A2490 /* MapCoordinator.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,6 +155,7 @@
 			files = (
 				F729D3C1231E15AB003A2490 /* LaunchScreen.storyboard in Resources */,
 				F729D3BE231E15AB003A2490 /* Assets.xcassets in Resources */,
+				F729D3CD231E16C6003A2490 /* Map.xib in Resources */,
 				F729D3BC231E15AA003A2490 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,7 +167,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F729D3CF231E16F2003A2490 /* Coordinator.swift in Sources */,
 				F729D3B9231E15AA003A2490 /* ViewController.swift in Sources */,
+				F729D3D1231E1743003A2490 /* AppCoordinator.swift in Sources */,
+				F729D3D3231E1854003A2490 /* MapCoordinator.swift in Sources */,
+				F729D3CC231E16C6003A2490 /* Map.swift in Sources */,
 				F729D3B7231E15AA003A2490 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
