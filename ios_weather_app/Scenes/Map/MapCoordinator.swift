@@ -17,6 +17,7 @@ class MapCoordinator: Coordinator {
     }
     
     override func start() {
-       
+       let mapViewController = MapViewController(nibName: Constants.MapScreenName, bundle: nil)
+        rootViewController.setViewControllers([mapViewController], animated: false)
     }
 }
