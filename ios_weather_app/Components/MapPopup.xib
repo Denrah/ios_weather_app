@@ -13,7 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapPopup" customModule="ios_weather_app" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="sdv-5Q-T2W"/>
-                <outlet property="showWeatherBtn" destination="YyV-TF-TwG" id="ccA-K8-qdg"/>
+                <outlet property="showWeatherBtn" destination="YyV-TF-TwG" id="t7N-ZC-BPs"/>
                 <outlet property="subtitleLabel" destination="HnW-QH-Zcn" id="hZr-RL-kvM"/>
                 <outlet property="titleLabel" destination="kJJ-6B-7zw" id="BoH-Pu-Ftf"/>
             </connections>
@@ -49,7 +49,7 @@
                         <color key="titleColor" red="0.29019607843137252" green="0.56470588235294117" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
-                        <action selector="onMainBtn:" destination="-1" eventType="touchUpInside" id="N2f-Vu-luF"/>
+                        <action selector="onMainBtn" destination="-1" eventType="touchUpInside" id="DW5-gc-dVD"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45°16'44.7&quot;N 9°43'33.2&quot;E" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HnW-QH-Zcn">

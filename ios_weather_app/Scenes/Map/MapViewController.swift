@@ -26,12 +26,14 @@ class MapViewController: UIViewController {
                     self.closePopup()
                     return
                 }
+                
                 self.mapPopup.title = cityName
                 self.showPopup()
             }
             
             self.viewModel.geocodingInProgress.bind = {
                 guard let value = $0 else {return}
+                
                 if value {
                     SVProgressHUD.show()
                 } else {
@@ -42,6 +44,8 @@ class MapViewController: UIViewController {
             self.viewModel.selectedCoordinate.bind = {[weak self] in
                 guard let self = self else {return}
                 guard let coordinate = $0 else {return}
+                
+                self.mapPopup.subtitle = coordinate.dmsCoordinate ?? "-"
                 let annotation = MKPointAnnotation()
                 annotation.coordinate = coordinate
                 self.mapView.removeAnnotations(self.mapView.annotations)
@@ -64,7 +68,7 @@ class MapViewController: UIViewController {
     
     private func configureNavigationBar() {
         self.navigationController?.navigationBar.barTintColor = UIColor.white
-        navigationItem.title = "Global Weather"
+        navigationItem.title = Constants.appName
         
         ShadowHelper.setStandartShadow(layer: navbarShadowView.layer)
         
@@ -110,8 +114,6 @@ extension MapViewController: UIGestureRecognizerDelegate {
     
         let location = gestureReconizer.location(in: mapView)
         let coordinate = mapView.convert(location, toCoordinateFrom: mapView)
-        
-        mapPopup.subtitle = coordinate.dmsCoordinate ?? "-"
         
         viewModel.updateCoordinate(coordinate: coordinate)
         viewModel.geocodeCityFromCoordinate(coordinate: coordinate)
