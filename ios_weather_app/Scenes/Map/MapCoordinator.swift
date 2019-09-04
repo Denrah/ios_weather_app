@@ -9,8 +9,13 @@
 import UIKit
 
 class MapCoordinator: Coordinator {
-    
     let rootViewController: UINavigationController
+    
+    lazy var mapViewModel: MapViewModel = {
+        let viewModel = MapViewModel()
+        viewModel.coordinatorDelegate = self
+        return viewModel
+    }()
     
     init(rootViewController: UINavigationController) {
         self.rootViewController = rootViewController
@@ -18,6 +23,7 @@ class MapCoordinator: Coordinator {
     
     override func start() {
        let mapViewController = MapViewController(nibName: Constants.MapScreenName, bundle: nil)
+        mapViewController.viewModel = mapViewModel
         rootViewController.setViewControllers([mapViewController], animated: false)
     }
 }

@@ -6,10 +6,11 @@
 //  Copyright © 2019 iOS Intern. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum Constants {
     static let MapScreenName = String(describing: MapViewController.self)
-    static let MapNavigationBarTitleView = String(describing: MapNavigationBarTitle.self)
     static let MapPopupName = String(describing: MapPopup.self)
+    static let MapPopupBottomOpenMargin: CGFloat = 16
+    static let MapPopupBottomCloseMargin: CGFloat = -200
 }

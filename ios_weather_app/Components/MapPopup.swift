@@ -10,15 +10,25 @@ import UIKit
 
 class MapPopup: UIView {
 
-    @IBOutlet var contentView: UIView!
-    @IBOutlet weak var showWeatherBtn: UIButton!
-    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet private var contentView: UIView!
+    @IBOutlet private weak var showWeatherBtn: UIButton!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var subtitleLabel: UILabel!
     
-    var city = "" {
+    var title = "" {
         didSet {
-            cityLabel.text = self.city
+            titleLabel.text = self.title
         }
     }
+    
+    var subtitle = "" {
+        didSet {
+            subtitleLabel.text = self.subtitle
+        }
+    }
+    
+    var onCloseButton: () -> Void = {}
+    var onMainButton: () -> Void = {}
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -35,16 +45,20 @@ class MapPopup: UIView {
         nib.instantiate(withOwner: self, options: nil)
         contentView.frame = bounds
         
-        contentView.layer.shadowColor = UIColor.black.cgColor
-        contentView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
-        contentView.layer.shadowRadius = 16.0
-        contentView.layer.shadowOpacity = 0.31
-        contentView.layer.masksToBounds = false
+        ShadowHelper.setStandartShadow(layer: contentView.layer)
         
         showWeatherBtn.layer.borderWidth = 1
         showWeatherBtn.layer.borderColor = showWeatherBtn.tintColor.cgColor
         showWeatherBtn.layer.cornerRadius = 22
         addSubview(contentView)
     }
-
+    
+    @IBAction private func onCloseBtn() {
+        onCloseButton()
+    }
+    
+    @IBAction private func onMainBtn() {
+        onMainButton()
+    }
+    
 }
