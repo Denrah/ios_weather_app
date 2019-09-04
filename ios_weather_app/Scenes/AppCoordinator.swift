@@ -9,7 +9,6 @@
 import UIKit
 
 class AppCoordinator: Coordinator {
-    
     // MARK: - Properties
     let window: UIWindow?
     
@@ -27,12 +26,15 @@ class AppCoordinator: Coordinator {
             return
         }
         
+        let mapCoordinator = MapCoordinator(rootViewController: rootViewController)
+        self.addChildCoordinator(mapCoordinator)
+        mapCoordinator.start()
+        
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
     }
     
     override func finish() {
-        
     }
     
 }
