@@ -9,7 +9,6 @@
 import UIKit
 
 class ShadowHelper {
-    
     static func setStandartShadow(layer: CALayer) {
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0.0, height: 0.0)

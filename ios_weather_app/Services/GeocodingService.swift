@@ -9,9 +9,15 @@
 import MapKit
 
 class GeocodingService {
-    
     static func cityFromCoordinates(coordinate: CLLocationCoordinate2D, completion: @escaping ([CLPlacemark]?, Error?) -> Void) {
-        CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)) { (placemarks, error) in
+        CLGeocoder().reverseGeocodeLocation( CLLocation(latitude: coordinate.latitude,
+                                                        longitude: coordinate.longitude)) { placemarks, error in
+            completion(placemarks, error)
+        }
+    }
+    
+    static func coordinatesFromCity(city: String, completion: @escaping ([CLPlacemark]?, Error?) -> Void) {
+        CLGeocoder().geocodeAddressString(city) { (placemarks, error) in
             completion(placemarks, error)
         }
     }

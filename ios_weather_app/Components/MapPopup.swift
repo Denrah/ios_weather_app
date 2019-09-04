@@ -9,7 +9,6 @@
 import UIKit
 
 class MapPopup: UIView {
-
     @IBOutlet private var contentView: UIView!
     @IBOutlet private weak var showWeatherBtn: UIButton!
     @IBOutlet private weak var titleLabel: UILabel!

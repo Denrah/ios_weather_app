@@ -9,7 +9,6 @@
 import UIKit
 
 class AppCoordinator: Coordinator {
-    
     // MARK: - Properties
     let window: UIWindow?
     
@@ -36,7 +35,6 @@ class AppCoordinator: Coordinator {
     }
     
     override func finish() {
-        
     }
     
 }
