@@ -53,4 +53,8 @@ class MapViewModel {
         selectedCoordinate.value = coordinate
     }
     
+    func goToWeather() {
+        guard let city = selectedCity.value else {return}
+        coordinatorDelegate?.goToWeather(city: city)
+    }
 }

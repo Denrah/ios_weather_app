@@ -10,8 +10,11 @@
 		8B9E2BD9F092D6C38B0F178F /* Pods_ios_weather_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D98893D7B9095D8ED44F0EB /* Pods_ios_weather_app.framework */; };
 		F71858DD231FAC1600288E99 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71858DC231FAC1600288E99 /* Dynamic.swift */; };
 		F71858E0231FC9B900288E99 /* LatLonToDMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71858DF231FC9B900288E99 /* LatLonToDMS.swift */; };
+		F71858E3231FDCEA00288E99 /* WeatherCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71858E2231FDCEA00288E99 /* WeatherCoordinator.swift */; };
+		F71858E6231FDE1300288E99 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71858E4231FDE1300288E99 /* WeatherViewController.swift */; };
+		F71858E7231FDE1300288E99 /* WeatherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F71858E5231FDE1300288E99 /* WeatherViewController.xib */; };
+		F71858E9231FDF6C00288E99 /* MapCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71858E8231FDF6C00288E99 /* MapCoordinatorDelegate.swift */; };
 		F729D3B7231E15AA003A2490 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729D3B6231E15AA003A2490 /* AppDelegate.swift */; };
-		F729D3B9231E15AA003A2490 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729D3B8231E15AA003A2490 /* ViewController.swift */; };
 		F729D3BC231E15AA003A2490 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F729D3BA231E15AA003A2490 /* Main.storyboard */; };
 		F729D3BE231E15AB003A2490 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F729D3BD231E15AB003A2490 /* Assets.xcassets */; };
 		F729D3C1231E15AB003A2490 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F729D3BF231E15AB003A2490 /* LaunchScreen.storyboard */; };
@@ -34,9 +37,12 @@
 		C7E2F60942EE8DA8FCEEC78C /* Pods-ios_weather_app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios_weather_app.release.xcconfig"; path = "Target Support Files/Pods-ios_weather_app/Pods-ios_weather_app.release.xcconfig"; sourceTree = "<group>"; };
 		F71858DC231FAC1600288E99 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		F71858DF231FC9B900288E99 /* LatLonToDMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatLonToDMS.swift; sourceTree = "<group>"; };
+		F71858E2231FDCEA00288E99 /* WeatherCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCoordinator.swift; sourceTree = "<group>"; };
+		F71858E4231FDE1300288E99 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		F71858E5231FDE1300288E99 /* WeatherViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherViewController.xib; sourceTree = "<group>"; };
+		F71858E8231FDF6C00288E99 /* MapCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		F729D3B3231E15AA003A2490 /* ios_weather_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios_weather_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F729D3B6231E15AA003A2490 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F729D3B8231E15AA003A2490 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F729D3BB231E15AA003A2490 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F729D3BD231E15AB003A2490 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F729D3C0231E15AB003A2490 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -83,6 +89,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F71858E1231FDCA600288E99 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				F71858E2231FDCEA00288E99 /* WeatherCoordinator.swift */,
+				F71858E4231FDE1300288E99 /* WeatherViewController.swift */,
+				F71858E5231FDE1300288E99 /* WeatherViewController.xib */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
 		F729D3AA231E15AA003A2490 = {
 			isa = PBXGroup;
 			children = (
@@ -110,7 +126,6 @@
 				F729D3D8231E1B71003A2490 /* Values */,
 				F729D3C8231E167F003A2490 /* Scenes */,
 				F729D3B6231E15AA003A2490 /* AppDelegate.swift */,
-				F729D3B8231E15AA003A2490 /* ViewController.swift */,
 				F729D3BA231E15AA003A2490 /* Main.storyboard */,
 				F729D3BD231E15AB003A2490 /* Assets.xcassets */,
 				F729D3BF231E15AB003A2490 /* LaunchScreen.storyboard */,
@@ -122,6 +137,7 @@
 		F729D3C8231E167F003A2490 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				F71858E1231FDCA600288E99 /* Weather */,
 				F729D3C9231E1697003A2490 /* Map */,
 				F729D3CE231E16F2003A2490 /* Coordinator.swift */,
 				F729D3D0231E1743003A2490 /* AppCoordinator.swift */,
@@ -136,6 +152,7 @@
 				F729D3D4231E1B2F003A2490 /* MapViewController.swift */,
 				F729D3D5231E1B2F003A2490 /* MapViewController.xib */,
 				F729D3DB231E1DAD003A2490 /* MapViewModel.swift */,
+				F71858E8231FDF6C00288E99 /* MapCoordinatorDelegate.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -237,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F729D3C1231E15AB003A2490 /* LaunchScreen.storyboard in Resources */,
+				F71858E7231FDE1300288E99 /* WeatherViewController.xib in Resources */,
 				F729D3BE231E15AB003A2490 /* Assets.xcassets in Resources */,
 				F729D3E3231E3CC1003A2490 /* MapPopup.xib in Resources */,
 				F729D3BC231E15AA003A2490 /* Main.storyboard in Resources */,
@@ -311,14 +329,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				F729D3CF231E16F2003A2490 /* Coordinator.swift in Sources */,
+				F71858E6231FDE1300288E99 /* WeatherViewController.swift in Sources */,
+				F71858E9231FDF6C00288E99 /* MapCoordinatorDelegate.swift in Sources */,
 				F729D3D6231E1B2F003A2490 /* MapViewController.swift in Sources */,
-				F729D3B9231E15AA003A2490 /* ViewController.swift in Sources */,
 				F729D3D1231E1743003A2490 /* AppCoordinator.swift in Sources */,
 				F71858E0231FC9B900288E99 /* LatLonToDMS.swift in Sources */,
 				F729D3E8231FA73D003A2490 /* ShadowHelper.swift in Sources */,
 				F729D3EB231FA83E003A2490 /* GeocodingService.swift in Sources */,
 				F729D3DA231E1B81003A2490 /* Constants.swift in Sources */,
 				F729D3D3231E1854003A2490 /* MapCoordinator.swift in Sources */,
+				F71858E3231FDCEA00288E99 /* WeatherCoordinator.swift in Sources */,
 				F729D3B7231E15AA003A2490 /* AppDelegate.swift in Sources */,
 				F71858DD231FAC1600288E99 /* Dynamic.swift in Sources */,
 				F729D3DC231E1DAD003A2490 /* MapViewModel.swift in Sources */,

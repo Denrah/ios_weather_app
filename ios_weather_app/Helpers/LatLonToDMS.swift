@@ -11,15 +11,12 @@ import MapKit
 
 extension CLLocationCoordinate2D {
     var dmsCoordinate: String? {
-        let latitude = self.latitude
-        let longitude = self.longitude
-        
-        var latSeconds = Int(latitude * 3600)
+        var latSeconds = Int(self.latitude * 3600)
         let latDegrees = latSeconds / 3600
         latSeconds = abs(latSeconds % 3600)
         let latMinutes = latSeconds / 60
         latSeconds %= 60
-        var longSeconds = Int(longitude * 3600)
+        var longSeconds = Int(self.longitude * 3600)
         let longDegrees = longSeconds / 3600
         longSeconds = abs(longSeconds % 3600)
         let longMinutes = longSeconds / 60

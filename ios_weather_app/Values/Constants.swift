@@ -11,6 +11,7 @@ import MapKit
 
 enum Constants {
     static let MapScreenName = String(describing: MapViewController.self)
+    static let WeatherScreenName = String(describing: WeatherViewController.self)
     static let MapPopupName = String(describing: MapPopup.self)
     static let MapPopupBottomOpenMargin: CGFloat = 16
     static let MapPopupBottomCloseMargin: CGFloat = -200

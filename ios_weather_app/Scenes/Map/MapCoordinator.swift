@@ -27,3 +27,18 @@ class MapCoordinator: Coordinator {
         rootViewController.setViewControllers([mapViewController], animated: false)
     }
 }
+
+extension MapCoordinator {
+    func goToWeather(city: String) {
+        let weatherCoordinator = WeatherCoordinator(rootViewController: self.rootViewController, city: city)
+        weatherCoordinator.delegate = self
+        addChildCoordinator(weatherCoordinator)
+        weatherCoordinator.start()
+    }
+}
+
+extension MapCoordinator: MapCoordinatorDelegate {
+    func didFinish(from coordinator: WeatherCoordinator) {
+        removeChildCoordinator(coordinator)
+    }
+}

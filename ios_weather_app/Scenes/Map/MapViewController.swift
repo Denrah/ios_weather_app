@@ -61,6 +61,7 @@ class MapViewController: UIViewController {
         SVProgressHUD.setDefaultMaskType(.black)
         
         mapPopup.onCloseButton = closePopup
+        mapPopup.onMainButton = viewModel.goToWeather
         
         configureNavigationBar()
         configureMap()
