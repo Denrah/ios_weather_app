@@ -45,7 +45,9 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="vSd-tM-rvZ"/>
                     </constraints>
-                    <state key="normal" title="Show Weather"/>
+                    <state key="normal" title="Show Weather">
+                        <color key="titleColor" red="0.29019607843137252" green="0.56470588235294117" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="onMainBtn:" destination="-1" eventType="touchUpInside" id="N2f-Vu-luF"/>
                     </connections>

@@ -9,5 +9,6 @@ target 'ios_weather_app' do
   pod 'Alamofire'
   pod 'Kingfisher'
   pod 'SwiftLint'
+  pod 'SVProgressHUD'
 
 end
