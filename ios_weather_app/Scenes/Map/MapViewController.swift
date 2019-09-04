@@ -11,12 +11,27 @@ import MapKit
 
 class MapViewController: UIViewController {
     
-    var searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var mapPopup: MapPopup!
+    @IBOutlet weak var navbarShadowView: UIView!
+    @IBOutlet weak var popupBottomConstraint: NSLayoutConstraint!
+    
+    var searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
+    
+    var viewModel: MapViewModel! {
+        didSet {
+            self.viewModel.selectedCity.bind = {[weak self] in
+                guard let self = self else {return}
+                guard let cityName = $0 else {return}
+                self.mapPopup.title = cityName
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        mapPopup.onCloseButton = closePopup
         
         configureNavigationBar()
         configureMap()
@@ -27,14 +42,7 @@ class MapViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor.white
         navigationItem.title = "Global Weather"
         
-        /*self.navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
-        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
-        self.navigationController?.navigationBar.layer.shadowRadius = 16.0
-        self.navigationController?.navigationBar.layer.shadowOpacity = 0.31
-        self.navigationController?.navigationBar.layer.masksToBounds = false*/
-        
-        /*let navigationBarTitleView = MapNavigationBarTitle(frame: CGRect(x: 0, y: 0, width: 200, height: 96))
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: navigationBarTitleView)*/
+        ShadowHelper.setStandartShadow(layer: navbarShadowView.layer)
         
         let searchController =  UISearchController(searchResultsController: nil)
         navigationItem.searchController = searchController
@@ -44,6 +52,20 @@ class MapViewController: UIViewController {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(gestureReconizer:)))
         gestureRecognizer.delegate = self
         mapView.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    private func showPopup() {
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: {
+            self.popupBottomConstraint.constant = Constants.MapPopupBottomOpenMargin
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
+    
+    private func closePopup() {
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: {
+            self.popupBottomConstraint.constant = Constants.MapPopupBottomCloseMargin
+            self.view.layoutIfNeeded()
+        }, completion: nil)
     }
 }
 
@@ -57,13 +79,9 @@ extension MapViewController: UIGestureRecognizerDelegate {
         let location = gestureReconizer.location(in: mapView)
         let coordinate = mapView.convert(location,toCoordinateFrom: mapView)
         
-        CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)) { (placemarks, error) in
-            guard error == nil else {
-                return
-            }
-            
-            self.mapPopup.city = placemarks?.first?.locality ?? ""
-        }
+        showPopup()
+        
+        viewModel.geocodeCityFromCoordinate(coordinate: coordinate)
         
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate

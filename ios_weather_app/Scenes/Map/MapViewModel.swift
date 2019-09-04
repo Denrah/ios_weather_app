@@ -7,13 +7,27 @@
 //
 
 import Foundation
+import MapKit
 
 class MapViewModel {
     
     weak var coordinatorDelegate: MapCoordinator?
     
+    var selectedCity = Dynamic<String>(nil)
+    
     init() {
         
+    }
+    
+    func geocodeCityFromCoordinate(coordinate: CLLocationCoordinate2D) {
+        GeocodingService.cityFromCoordinates(coordinate: coordinate) { (placemarks, error) in
+            guard error == nil else {
+                self.selectedCity.value = nil
+                return
+            }
+
+            self.selectedCity.value = placemarks?.first?.locality
+        }
     }
     
 }

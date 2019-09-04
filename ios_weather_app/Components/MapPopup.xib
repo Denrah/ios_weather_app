@@ -12,9 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapPopup" customModule="ios_weather_app" customModuleProvider="target">
             <connections>
-                <outlet property="cityLabel" destination="kJJ-6B-7zw" id="X9F-xL-i5d"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="sdv-5Q-T2W"/>
                 <outlet property="showWeatherBtn" destination="YyV-TF-TwG" id="ccA-K8-qdg"/>
+                <outlet property="subtitleLabel" destination="HnW-QH-Zcn" id="hZr-RL-kvM"/>
+                <outlet property="titleLabel" destination="kJJ-6B-7zw" id="BoH-Pu-Ftf"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -35,6 +36,9 @@
                         <constraint firstAttribute="width" constant="12" id="hCR-bU-ePk"/>
                     </constraints>
                     <state key="normal" image="close"/>
+                    <connections>
+                        <action selector="onCloseBtn" destination="-1" eventType="touchUpInside" id="ngC-xr-1xN"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YyV-TF-TwG">
                     <rect key="frame" x="16" y="97" width="311" height="44"/>
@@ -42,6 +46,9 @@
                         <constraint firstAttribute="height" constant="44" id="vSd-tM-rvZ"/>
                     </constraints>
                     <state key="normal" title="Show Weather"/>
+                    <connections>
+                        <action selector="onMainBtn:" destination="-1" eventType="touchUpInside" id="N2f-Vu-luF"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45°16'44.7&quot;N 9°43'33.2&quot;E" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HnW-QH-Zcn">
                     <rect key="frame" x="16" y="86" width="311" height="18"/>
