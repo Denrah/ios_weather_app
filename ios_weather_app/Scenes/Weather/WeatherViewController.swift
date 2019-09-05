@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SVProgressHUD
+import Kingfisher
 
 class WeatherViewController: UIViewController {
     @IBOutlet private weak var tempLabel: UILabel!
@@ -16,6 +17,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet private weak var humidityValueLabel: UILabel!
     @IBOutlet private weak var windValueLabel: UILabel!
     @IBOutlet private weak var pressureValueLabel: UILabel!
+    @IBOutlet weak var weatherIcon: UIImageView!
     
     var viewModel: WeatherViewModel! {
         didSet {
@@ -29,10 +31,13 @@ class WeatherViewController: UIViewController {
                 guard let self = self else {return}
                 guard let weather = $0 else {return}
                 
-                print(weather)
+                if let icon = weather.weather.first?.icon {
+                    let iconUrl = URL(string: Constants.apiIconsUrl + "/img/wn/\(icon)@2x.png");
+                    self.weatherIcon.kf.setImage(with: iconUrl)
+                }
                 
                 self.tempLabel.text = "\(Int(weather.main.temp))"
-                self.statusLabel.text = "\(weather.weather.first?.description ?? "-")"
+                self.statusLabel.text = "\(weather.weather.first?.description.capitalized ?? "-")"
                 self.humidityValueLabel.text = "\(weather.main.humidity)%"
                 self.windValueLabel.text = "\(weather.wind.speed) m/s"
                 self.pressureValueLabel.text = "\(weather.main.pressure)"

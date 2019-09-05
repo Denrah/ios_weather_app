@@ -10,7 +10,11 @@ import Alamofire
 
 class ApiService {
     static func getWeatherByCity(city: String, completion: @escaping (Weather?) -> Void) {
-        Alamofire.request(Constants.apiUrl + "/data/2.5/weather?q=" + city + "&units=metric&APPID=" + Api.key).responseData { (response) in
+        guard let ecnodedCity = city.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+            completion(nil)
+            return
+        }
+        Alamofire.request(Constants.apiUrl + "/data/2.5/weather?q=" + ecnodedCity + "&units=metric&APPID=" + Api.key).responseData { (response) in
             guard let data = response.data else {
                 completion(nil)
                 return

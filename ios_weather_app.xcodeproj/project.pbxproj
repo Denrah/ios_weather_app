@@ -33,6 +33,7 @@
 		F729D3E5231E3D40003A2490 /* MapPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729D3E4231E3D40003A2490 /* MapPopup.swift */; };
 		F729D3E8231FA73D003A2490 /* ShadowHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729D3E7231FA73D003A2490 /* ShadowHelper.swift */; };
 		F729D3EB231FA83E003A2490 /* GeocodingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729D3EA231FA83E003A2490 /* GeocodingService.swift */; };
+		F7FDBDF2232101A400BA15E5 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FDBDF1232101A400BA15E5 /* UIImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		F729D3E4231E3D40003A2490 /* MapPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPopup.swift; sourceTree = "<group>"; };
 		F729D3E7231FA73D003A2490 /* ShadowHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowHelper.swift; sourceTree = "<group>"; };
 		F729D3EA231FA83E003A2490 /* GeocodingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodingService.swift; sourceTree = "<group>"; };
+		F7FDBDF1232101A400BA15E5 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 				F729D3E7231FA73D003A2490 /* ShadowHelper.swift */,
 				F71858DC231FAC1600288E99 /* Dynamic.swift */,
 				F71858DF231FC9B900288E99 /* LatLonToDMS.swift */,
+				F7FDBDF1232101A400BA15E5 /* UIImageView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				F729D3B7231E15AA003A2490 /* AppDelegate.swift in Sources */,
 				F71858F22320B29B00288E99 /* ApiService.swift in Sources */,
 				F71858DD231FAC1600288E99 /* Dynamic.swift in Sources */,
+				F7FDBDF2232101A400BA15E5 /* UIImageView.swift in Sources */,
 				F729D3DC231E1DAD003A2490 /* MapViewModel.swift in Sources */,
 				F71858EB2320AA1000288E99 /* Api.swift in Sources */,
 				F729D3E5231E3D40003A2490 /* MapPopup.swift in Sources */,

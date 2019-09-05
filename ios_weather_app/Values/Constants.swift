@@ -18,4 +18,5 @@ enum Constants {
     static let MapInitialCoordinate = CLLocationCoordinate2D(latitude: 41.82665680566723, longitude: -87.59588323647132)
     static let appName = "Global Weather"
     static let apiUrl = "http://api.openweathermap.org"
+    static let apiIconsUrl = "http://openweathermap.org"
 }
