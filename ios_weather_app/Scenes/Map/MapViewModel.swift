@@ -16,10 +16,6 @@ class MapViewModel {
     var selectedCoordinate = Dynamic<CLLocationCoordinate2D>(Constants.MapInitialCoordinate)
     var geocodingInProgress = Dynamic<Bool>(false)
     
-    init() {
-        
-    }
-    
     func geocodeCityFromCoordinate(coordinate: CLLocationCoordinate2D) {
         geocodingInProgress.value = true
         GeocodingService.cityFromCoordinates(coordinate: coordinate) { placemarks, error in

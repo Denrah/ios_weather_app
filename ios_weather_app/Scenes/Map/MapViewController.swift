@@ -67,9 +67,16 @@ class MapViewController: UIViewController {
         configureMap()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationItem.largeTitleDisplayMode = .never
+    }
+    
     private func configureNavigationBar() {
-        self.navigationController?.navigationBar.barTintColor = UIColor.white
+        navigationController?.navigationBar.barTintColor = UIColor.white
         navigationItem.title = Constants.appName
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Map", style: .plain, target: nil, action: nil)
         
         ShadowHelper.setStandartShadow(layer: navbarShadowView.layer)
         
@@ -77,6 +84,7 @@ class MapViewController: UIViewController {
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
+        navigationItem.searchController?.searchBar
     }
     
     private func configureMap() {
