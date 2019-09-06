@@ -1,15 +1,21 @@
+//
+//  Dynamic.swift
+//  ios_weather_app
+//
+
 import Foundation
 
 class Dynamic<T> {
-    var bind: (T?) -> Void = { _ in }
-    
-    var value: T? {
-        didSet {
-            bind(value)
-        }
+  var bind: ((T?) -> Void)?
+  
+  var value: T? {
+    didSet {
+      guard let bind = bind else {return}
+      bind(value)
     }
-    
-    init(_ defaultValue: T?) {
-        value = defaultValue
-    }
+  }
+  
+  init(_ defaultValue: T?) {
+    value = defaultValue
+  }
 }

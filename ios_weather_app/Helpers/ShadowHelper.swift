@@ -2,18 +2,15 @@
 //  ShadowHelper.swift
 //  ios_weather_app
 //
-//  Created by iOS Intern on 04/09/2019.
-//  Copyright © 2019 iOS Intern. All rights reserved.
-//
 
 import UIKit
 
-class ShadowHelper {
-    static func setStandartShadow(layer: CALayer) {
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
-        layer.shadowRadius = 16.0
-        layer.shadowOpacity = 0.31
-        layer.masksToBounds = false
-    }
+extension CALayer {
+  func setStandartShadow() {
+    self.shadowColor = UIColor.black.cgColor
+    self.shadowOffset = CGSize(width: 0.0, height: 0.0)
+    self.shadowRadius = 16.0
+    self.shadowOpacity = 0.31
+    self.masksToBounds = false
+  }
 }

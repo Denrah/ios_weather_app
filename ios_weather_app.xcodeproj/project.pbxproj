@@ -19,7 +19,6 @@
 		F71858F02320B26700288E99 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71858EF2320B26700288E99 /* WeatherViewModel.swift */; };
 		F71858F22320B29B00288E99 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71858F12320B29B00288E99 /* ApiService.swift */; };
 		F729D3B7231E15AA003A2490 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729D3B6231E15AA003A2490 /* AppDelegate.swift */; };
-		F729D3BC231E15AA003A2490 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F729D3BA231E15AA003A2490 /* Main.storyboard */; };
 		F729D3BE231E15AB003A2490 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F729D3BD231E15AB003A2490 /* Assets.xcassets */; };
 		F729D3C1231E15AB003A2490 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F729D3BF231E15AB003A2490 /* LaunchScreen.storyboard */; };
 		F729D3CF231E16F2003A2490 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729D3CE231E16F2003A2490 /* Coordinator.swift */; };
@@ -29,11 +28,14 @@
 		F729D3D7231E1B2F003A2490 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F729D3D5231E1B2F003A2490 /* MapViewController.xib */; };
 		F729D3DA231E1B81003A2490 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729D3D9231E1B81003A2490 /* Constants.swift */; };
 		F729D3DC231E1DAD003A2490 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729D3DB231E1DAD003A2490 /* MapViewModel.swift */; };
-		F729D3E3231E3CC1003A2490 /* MapPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = F729D3E2231E3CC1003A2490 /* MapPopup.xib */; };
-		F729D3E5231E3D40003A2490 /* MapPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729D3E4231E3D40003A2490 /* MapPopup.swift */; };
+		F729D3E3231E3CC1003A2490 /* MapPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F729D3E2231E3CC1003A2490 /* MapPopupView.xib */; };
+		F729D3E5231E3D40003A2490 /* MapPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729D3E4231E3D40003A2490 /* MapPopupView.swift */; };
 		F729D3E8231FA73D003A2490 /* ShadowHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729D3E7231FA73D003A2490 /* ShadowHelper.swift */; };
 		F729D3EB231FA83E003A2490 /* GeocodingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729D3EA231FA83E003A2490 /* GeocodingService.swift */; };
 		F7FDBDF2232101A400BA15E5 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FDBDF1232101A400BA15E5 /* UIImageView.swift */; };
+		F7FDBDF42322611500BA15E5 /* MapPopupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FDBDF32322611500BA15E5 /* MapPopupViewModel.swift */; };
+		F7FDBDF62322685800BA15E5 /* MapViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FDBDF52322685800BA15E5 /* MapViewModelDelegate.swift */; };
+		F7FDBDF8232283EC00BA15E5 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FDBDF7232283EC00BA15E5 /* Double.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,7 +54,6 @@
 		F71858F12320B29B00288E99 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		F729D3B3231E15AA003A2490 /* ios_weather_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios_weather_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F729D3B6231E15AA003A2490 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F729D3BB231E15AA003A2490 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F729D3BD231E15AB003A2490 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F729D3C0231E15AB003A2490 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F729D3C2231E15AB003A2490 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -63,11 +64,14 @@
 		F729D3D5231E1B2F003A2490 /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		F729D3D9231E1B81003A2490 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F729D3DB231E1DAD003A2490 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
-		F729D3E2231E3CC1003A2490 /* MapPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapPopup.xib; sourceTree = "<group>"; };
-		F729D3E4231E3D40003A2490 /* MapPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPopup.swift; sourceTree = "<group>"; };
+		F729D3E2231E3CC1003A2490 /* MapPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapPopupView.xib; sourceTree = "<group>"; };
+		F729D3E4231E3D40003A2490 /* MapPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPopupView.swift; sourceTree = "<group>"; };
 		F729D3E7231FA73D003A2490 /* ShadowHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowHelper.swift; sourceTree = "<group>"; };
 		F729D3EA231FA83E003A2490 /* GeocodingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodingService.swift; sourceTree = "<group>"; };
 		F7FDBDF1232101A400BA15E5 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		F7FDBDF32322611500BA15E5 /* MapPopupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPopupViewModel.swift; sourceTree = "<group>"; };
+		F7FDBDF52322685800BA15E5 /* MapViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModelDelegate.swift; sourceTree = "<group>"; };
+		F7FDBDF7232283EC00BA15E5 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,11 +146,9 @@
 				F71858EC2320AA8400288E99 /* Models */,
 				F729D3E9231FA828003A2490 /* Services */,
 				F729D3E6231FA720003A2490 /* Helpers */,
-				F729D3DD231E21CB003A2490 /* Components */,
 				F729D3D8231E1B71003A2490 /* Values */,
-				F729D3C8231E167F003A2490 /* Scenes */,
+				F729D3C8231E167F003A2490 /* Modules */,
 				F729D3B6231E15AA003A2490 /* AppDelegate.swift */,
-				F729D3BA231E15AA003A2490 /* Main.storyboard */,
 				F729D3BD231E15AB003A2490 /* Assets.xcassets */,
 				F729D3BF231E15AB003A2490 /* LaunchScreen.storyboard */,
 				F729D3C2231E15AB003A2490 /* Info.plist */,
@@ -154,7 +156,7 @@
 			path = ios_weather_app;
 			sourceTree = "<group>";
 		};
-		F729D3C8231E167F003A2490 /* Scenes */ = {
+		F729D3C8231E167F003A2490 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
 				F71858E1231FDCA600288E99 /* Weather */,
@@ -162,17 +164,21 @@
 				F729D3CE231E16F2003A2490 /* Coordinator.swift */,
 				F729D3D0231E1743003A2490 /* AppCoordinator.swift */,
 			);
-			path = Scenes;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		F729D3C9231E1697003A2490 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				F729D3E2231E3CC1003A2490 /* MapPopupView.xib */,
+				F729D3E4231E3D40003A2490 /* MapPopupView.swift */,
+				F7FDBDF32322611500BA15E5 /* MapPopupViewModel.swift */,
 				F729D3D2231E1854003A2490 /* MapCoordinator.swift */,
 				F729D3D4231E1B2F003A2490 /* MapViewController.swift */,
 				F729D3D5231E1B2F003A2490 /* MapViewController.xib */,
 				F729D3DB231E1DAD003A2490 /* MapViewModel.swift */,
 				F71858E8231FDF6C00288E99 /* MapCoordinatorDelegate.swift */,
+				F7FDBDF52322685800BA15E5 /* MapViewModelDelegate.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -186,15 +192,6 @@
 			path = Values;
 			sourceTree = "<group>";
 		};
-		F729D3DD231E21CB003A2490 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				F729D3E2231E3CC1003A2490 /* MapPopup.xib */,
-				F729D3E4231E3D40003A2490 /* MapPopup.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
 		F729D3E6231FA720003A2490 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +199,7 @@
 				F71858DC231FAC1600288E99 /* Dynamic.swift */,
 				F71858DF231FC9B900288E99 /* LatLonToDMS.swift */,
 				F7FDBDF1232101A400BA15E5 /* UIImageView.swift */,
+				F7FDBDF7232283EC00BA15E5 /* Double.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -279,8 +277,7 @@
 				F729D3C1231E15AB003A2490 /* LaunchScreen.storyboard in Resources */,
 				F71858E7231FDE1300288E99 /* WeatherViewController.xib in Resources */,
 				F729D3BE231E15AB003A2490 /* Assets.xcassets in Resources */,
-				F729D3E3231E3CC1003A2490 /* MapPopup.xib in Resources */,
-				F729D3BC231E15AA003A2490 /* Main.storyboard in Resources */,
+				F729D3E3231E3CC1003A2490 /* MapPopupView.xib in Resources */,
 				F729D3D7231E1B2F003A2490 /* MapViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,6 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7FDBDF62322685800BA15E5 /* MapViewModelDelegate.swift in Sources */,
 				F729D3CF231E16F2003A2490 /* Coordinator.swift in Sources */,
 				F71858F02320B26700288E99 /* WeatherViewModel.swift in Sources */,
 				F71858EE2320AAA200288E99 /* Weather.swift in Sources */,
@@ -361,6 +359,7 @@
 				F71858E0231FC9B900288E99 /* LatLonToDMS.swift in Sources */,
 				F729D3E8231FA73D003A2490 /* ShadowHelper.swift in Sources */,
 				F729D3EB231FA83E003A2490 /* GeocodingService.swift in Sources */,
+				F7FDBDF8232283EC00BA15E5 /* Double.swift in Sources */,
 				F729D3DA231E1B81003A2490 /* Constants.swift in Sources */,
 				F729D3D3231E1854003A2490 /* MapCoordinator.swift in Sources */,
 				F71858E3231FDCEA00288E99 /* WeatherCoordinator.swift in Sources */,
@@ -368,23 +367,16 @@
 				F71858F22320B29B00288E99 /* ApiService.swift in Sources */,
 				F71858DD231FAC1600288E99 /* Dynamic.swift in Sources */,
 				F7FDBDF2232101A400BA15E5 /* UIImageView.swift in Sources */,
+				F7FDBDF42322611500BA15E5 /* MapPopupViewModel.swift in Sources */,
 				F729D3DC231E1DAD003A2490 /* MapViewModel.swift in Sources */,
 				F71858EB2320AA1000288E99 /* Api.swift in Sources */,
-				F729D3E5231E3D40003A2490 /* MapPopup.swift in Sources */,
+				F729D3E5231E3D40003A2490 /* MapPopupView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F729D3BA231E15AA003A2490 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F729D3BB231E15AA003A2490 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F729D3BF231E15AB003A2490 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
