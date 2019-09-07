@@ -24,7 +24,6 @@ class WeatherViewModel {
     loadingInProgress.value = true
     apiService.getWeatherByCity(city: city) { weather in
       self.loadingInProgress.value = false
-      guard let weather = weather else {return}
       self.weather.value = weather
     }
   }

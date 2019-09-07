@@ -132,22 +132,43 @@
                 <constraint firstItem="1xf-KQ-Zxr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="B4L-av-ggs"/>
                 <constraint firstItem="NqW-K6-eYH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="45" id="Gc9-Gp-cOg"/>
                 <constraint firstItem="Cec-pV-rFu" firstAttribute="top" secondItem="1xf-KQ-Zxr" secondAttribute="bottom" id="Gce-n3-reF"/>
-                <constraint firstItem="bXd-DY-Tmx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="IOU-Cf-dMv"/>
+                <constraint firstItem="bXd-DY-Tmx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="250" id="IOU-Cf-dMv">
+                    <variation key="heightClass=compact-widthClass=regular" constant="250"/>
+                    <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                </constraint>
                 <constraint firstItem="Cec-pV-rFu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="KVS-88-Pdm"/>
                 <constraint firstItem="NqW-K6-eYH" firstAttribute="leading" secondItem="nnc-qW-8PX" secondAttribute="trailing" id="QHu-6S-wg8"/>
                 <constraint firstItem="4r7-0F-iIx" firstAttribute="top" secondItem="8GI-AZ-BsN" secondAttribute="bottom" constant="40" id="QpO-A8-QPX"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="bXd-DY-Tmx" secondAttribute="bottom" constant="21" id="a4H-6P-l7v"/>
-                <constraint firstItem="4r7-0F-iIx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="aHI-I2-DpN"/>
+                <constraint firstItem="K2b-qK-dV2" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Wj7-sk-OZY"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="bXd-DY-Tmx" secondAttribute="bottom" constant="21" id="a4H-6P-l7v">
+                    <variation key="heightClass=regular-widthClass=compact" constant="21"/>
+                </constraint>
+                <constraint firstItem="4r7-0F-iIx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="250" id="aHI-I2-DpN">
+                    <variation key="heightClass=compact-widthClass=regular" constant="250"/>
+                    <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                </constraint>
                 <constraint firstItem="9M2-u5-c8T" firstAttribute="top" secondItem="Gjh-6O-06F" secondAttribute="bottom" constant="40" id="ahc-NI-ihc"/>
                 <constraint firstItem="Gjh-6O-06F" firstAttribute="top" secondItem="4r7-0F-iIx" secondAttribute="bottom" constant="10" id="cIP-xb-pE6"/>
                 <constraint firstItem="Cec-pV-rFu" firstAttribute="centerX" secondItem="1xf-KQ-Zxr" secondAttribute="centerX" id="ciN-hy-O2D"/>
-                <constraint firstItem="8GI-AZ-BsN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="flj-V0-qXY"/>
-                <constraint firstItem="Gjh-6O-06F" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="gqe-by-T3v"/>
+                <constraint firstItem="8GI-AZ-BsN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="250" id="flj-V0-qXY">
+                    <variation key="heightClass=compact-widthClass=regular" constant="250"/>
+                    <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                </constraint>
+                <constraint firstItem="Gjh-6O-06F" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="250" id="gqe-by-T3v">
+                    <variation key="heightClass=compact-widthClass=regular" constant="250"/>
+                    <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                </constraint>
                 <constraint firstItem="K2b-qK-dV2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="D2m-0J-Uc7" secondAttribute="trailing" constant="32" id="lzc-CT-04r"/>
                 <constraint firstItem="nnc-qW-8PX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="pJ4-4U-Sbv"/>
-                <constraint firstItem="D2m-0J-Uc7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="pVj-7J-zCd"/>
+                <constraint firstItem="D2m-0J-Uc7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="250" id="pVj-7J-zCd">
+                    <variation key="heightClass=compact-widthClass=regular" constant="250"/>
+                    <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                </constraint>
                 <constraint firstItem="K2b-qK-dV2" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="sCQ-MQ-JTY"/>
-                <constraint firstItem="9M2-u5-c8T" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="sJN-yT-Xdw"/>
+                <constraint firstItem="9M2-u5-c8T" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="250" id="sJN-yT-Xdw">
+                    <variation key="heightClass=compact-widthClass=regular" constant="250"/>
+                    <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                </constraint>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="53.523238380809602" y="47.200000000000003"/>

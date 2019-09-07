@@ -16,20 +16,23 @@ class ApiService {
       + ecnodedCity
       + "&units=metric&APPID="
       + Api.key).responseData { response in
-        guard let data = response.data else {
-          return
-        }
         
-        let decoder = JSONDecoder()
-        
-        do {
-          let weather = try decoder.decode(Weather.self, from: data)
-          completion(weather)
+        switch response.result {
+        case .success(let data):          
+          let decoder = JSONDecoder()
           
-        } catch let error {
+          do {
+            let weather = try decoder.decode(Weather.self, from: data)
+            completion(weather)
+            
+          } catch let error {
+            print(error)
+            completion(nil)
+            return
+          }
+        case .failure(let error):
           print(error)
           completion(nil)
-          return
         }
     }
   }

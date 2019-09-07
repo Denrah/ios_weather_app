@@ -43,7 +43,7 @@ class MapViewModel {
   func geocodeCoordinateFromCity(city: String) {
     searchDelayTimer?.invalidate()
     
-    searchDelayTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { _ in
+    searchDelayTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { _ in
       self.geocodingInProgress.value = true
       self.geocodingService.coordinatesFromCity(city: city) { result in
         self.geocodingInProgress.value = false
