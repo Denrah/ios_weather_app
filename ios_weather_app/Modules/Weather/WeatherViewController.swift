@@ -42,6 +42,8 @@ class WeatherViewController: UIViewController {
     fatalError("init(coder:) has not been implemented")
   }
   
+  // MARK: - Scene setup
+  
   private func bindToViewModel() {
     self.viewModel.weather.bind = {[weak self] in
       guard let self = self else {return}
@@ -107,9 +109,11 @@ class WeatherViewController: UIViewController {
     navigationController?.setNavigationBarHidden(false, animated: true)
   }
   
+  // MARK: - Values formatting helper
+  
   private func unwrapWeatherValue(value: Double?) -> String {
     if let value = value {
-      return String(value)
+      return String(value.removeZerosFromEnd())
     } else {
       return "-"
     }

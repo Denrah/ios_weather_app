@@ -23,7 +23,9 @@ class MapPopupView: UIView {
     setupView()
   }
   
-  func setup(viewModel: MapPopupViewModel) {
+  // MARK: - Popup configuration
+  
+  func setup(with viewModel: MapPopupViewModel) {
     self.viewModel = viewModel
     bindToViewModel()
   }
@@ -49,6 +51,8 @@ class MapPopupView: UIView {
     showWeatherBtn.layer.cornerRadius = 22
     addSubview(contentView)
   }
+  
+  // MARK: - Popup events
   
   @IBAction private func onCloseBtn() {
     viewModel?.onCloseButton()

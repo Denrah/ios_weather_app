@@ -6,7 +6,7 @@
 import Foundation
 
 class MapPopupViewModel {
-  unowned var parentDelegate: MapViewModelDelegate
+  weak var parentDelegate: MapViewModelDelegate?
   
   let title = Dynamic<String>(nil)
   let subtitle = Dynamic<String>(nil)
@@ -16,10 +16,10 @@ class MapPopupViewModel {
   }
   
   func onCloseButton() {
-    parentDelegate.onPopupCloseButton()
+    parentDelegate?.onPopupCloseButton()
   }
   
   func onMainButton() {
-    parentDelegate.onPopupMainButton()
+    parentDelegate?.onPopupMainButton()
   }
 }

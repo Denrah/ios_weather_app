@@ -17,4 +17,16 @@ extension Double {
     if self > 22.5 {return "NE"}
     return "N"
   }
+  
+  func removeZerosFromEnd() -> String {
+    let formatter = NumberFormatter()
+    let number = NSNumber(value: self)
+    formatter.minimumFractionDigits = 0
+    formatter.maximumFractionDigits = 16
+    var value = String(formatter.string(from: number) ?? "")
+    if value[value.startIndex] == "." {
+      value = "0" + value
+    }
+    return value
+  }
 }

@@ -7,20 +7,21 @@ import UIKit
 import MapKit
 import SVProgressHUD
 
-private enum MapConstants {
-  static let MapPopupBottomOpenMargin: CGFloat = 16
-  static let MapPopupBottomCloseMargin: CGFloat = -200
-  static let appName = "Global Weather"
-}
-
 class MapViewController: UIViewController {
   @IBOutlet private weak var mapView: MKMapView!
   @IBOutlet private weak var mapPopup: MapPopupView!
   @IBOutlet private weak var navbarShadowView: UIView!
   @IBOutlet private weak var popupBottomConstraint: NSLayoutConstraint!
   
+  // MARK: - Class constants
+  
+  private enum MapConstants {
+    static let mapPopupBottomOpenMargin: CGFloat = 16
+    static let mapPopupBottomCloseMargin: CGFloat = -200
+    static let appName = "Global Weather"
+  }
+  
   let viewModel: MapViewModel
-  var searchDelayTimer: Timer?
   
   init(viewModel: MapViewModel) {
     self.viewModel = viewModel
@@ -30,6 +31,8 @@ class MapViewController: UIViewController {
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+  
+  // MARK: - Scene configuration
   
   private func bindToViewModel() {
     self.viewModel.selectedCity.bind = {[weak self] in
@@ -84,7 +87,7 @@ class MapViewController: UIViewController {
     SVProgressHUD.setDefaultMaskType(.black)
 
     let popupViewModel = MapPopupViewModel(delegate: viewModel)
-    mapPopup.setup(viewModel: popupViewModel)
+    mapPopup.setup(with: popupViewModel)
     
     configureNavigationBar()
     configureMap()
@@ -113,36 +116,37 @@ class MapViewController: UIViewController {
     let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(gestureReconizer:)))
     gestureRecognizer.delegate = self
     mapView.addGestureRecognizer(gestureRecognizer)
-    mapView.setCenter(Constants.MapInitialCoordinate, animated: false)
+    mapView.setCenter(Constants.mapInitialCoordinate, animated: false)
   }
+  
+  // MARK: - Popup actions
   
   private func showPopup() {
     UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: {
-      self.popupBottomConstraint.constant = MapConstants.MapPopupBottomOpenMargin
+      self.popupBottomConstraint.constant = MapConstants.mapPopupBottomOpenMargin
       self.view.layoutIfNeeded()
     }, completion: nil)
   }
   
   private func closePopup() {
     UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: {
-      self.popupBottomConstraint.constant = MapConstants.MapPopupBottomCloseMargin
+      self.popupBottomConstraint.constant = MapConstants.mapPopupBottomCloseMargin
       self.view.layoutIfNeeded()
     }, completion: nil)
   }
 }
 
+// MARK: - Search handler
+
 extension MapViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
     guard let text = searchController.searchBar.text else {return}
     guard !text.isEmpty else {return}
-    
-    searchDelayTimer?.invalidate()
-    
-    searchDelayTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { _ in
-      self.viewModel.geocodeCoordinateFromCity(city: text)
-    }
+    self.viewModel.geocodeCoordinateFromCity(city: text)
   }
 }
+
+// MARK: - Tap handler
 
 extension MapViewController: UIGestureRecognizerDelegate {
   @objc func handleTap(gestureReconizer: UILongPressGestureRecognizer) {

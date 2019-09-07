@@ -21,6 +21,8 @@ class MapCoordinator: Coordinator {
   }
 }
 
+// MARK: - transitions between scenes
+
 extension MapCoordinator {
   func goToWeather(city: String) {
     let weatherCoordinator = WeatherCoordinator(rootViewController: self.rootViewController, city: city)
