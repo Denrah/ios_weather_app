@@ -12,15 +12,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeatherViewController" customModule="ios_weather_app" customModuleProvider="target">
             <connections>
-                <outlet property="degreesIcon" destination="NqW-K6-eYH" id="ffN-XP-SR3"/>
-                <outlet property="humidityValueLabel" destination="8GI-AZ-BsN" id="P26-Wg-cff"/>
-                <outlet property="pressureValueLabel" destination="bXd-DY-Tmx" id="lYm-fy-Ofe"/>
-                <outlet property="statusLabel" destination="Cec-pV-rFu" id="qHb-dK-3A3"/>
-                <outlet property="tempLabel" destination="nnc-qW-8PX" id="rA2-HR-3LG"/>
+                <outlet property="degreesIconView" destination="NqW-K6-eYH" id="ed3-tr-SCW"/>
+                <outlet property="descriptionLabel" destination="Cec-pV-rFu" id="JPN-Bo-f7C"/>
+                <outlet property="humidityLabel" destination="8GI-AZ-BsN" id="V30-0D-8IY"/>
+                <outlet property="pressureLabel" destination="bXd-DY-Tmx" id="amD-RV-B3O"/>
+                <outlet property="temperatureLabel" destination="nnc-qW-8PX" id="W5H-6w-W8B"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="weatherIcon" destination="1xf-KQ-Zxr" id="OwR-0A-IU4"/>
-                <outlet property="weatherImage" destination="K2b-qK-dV2" id="jXa-Od-qUO"/>
-                <outlet property="windValueLabel" destination="Gjh-6O-06F" id="z8S-WP-MuC"/>
+                <outlet property="weatherIconImageView" destination="1xf-KQ-Zxr" id="FVu-Zo-FgJ"/>
+                <outlet property="weatherImageView" destination="K2b-qK-dV2" id="SRS-cx-Jbh"/>
+                <outlet property="windLabel" destination="Gjh-6O-06F" id="KjD-Uc-ge3"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -28,12 +28,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="260" verticalHuggingPriority="251" horizontalCompressionResistancePriority="730" image="scatteredclouds" translatesAutoresizingMaskIntoConstraints="NO" id="K2b-qK-dV2">
-                    <rect key="frame" x="135" y="117" width="240" height="550"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="K2b-qK-dV2" secondAttribute="height" multiplier="24:55" id="pbH-Fa-Fcj"/>
-                    </constraints>
-                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnc-qW-8PX">
                     <rect key="frame" x="16" y="51" width="106.5" height="110"/>
                     <constraints>
@@ -119,12 +113,17 @@
                         <constraint firstAttribute="width" constant="80" id="cHg-Uh-2nM"/>
                     </constraints>
                 </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="260" verticalHuggingPriority="251" horizontalCompressionResistancePriority="730" image="scatteredclouds" translatesAutoresizingMaskIntoConstraints="NO" id="K2b-qK-dV2">
+                    <rect key="frame" x="135" y="117" width="240" height="550"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="K2b-qK-dV2" secondAttribute="height" multiplier="24:55" id="pbH-Fa-Fcj"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="nnc-qW-8PX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="31" id="0dT-wb-Gr5"/>
                 <constraint firstItem="FJU-XG-tYO" firstAttribute="leading" secondItem="NqW-K6-eYH" secondAttribute="trailing" constant="8" id="3et-md-0wD"/>
-                <constraint firstItem="K2b-qK-dV2" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="4sE-JY-Jox"/>
                 <constraint firstItem="bXd-DY-Tmx" firstAttribute="top" secondItem="9M2-u5-c8T" secondAttribute="bottom" constant="10" id="5zi-Od-BnO"/>
                 <constraint firstItem="FJU-XG-tYO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="39" id="84F-Tc-RIR"/>
                 <constraint firstItem="1xf-KQ-Zxr" firstAttribute="top" secondItem="nnc-qW-8PX" secondAttribute="bottom" id="8zQ-vg-7OU"/>
@@ -139,6 +138,7 @@
                 <constraint firstItem="Cec-pV-rFu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="KVS-88-Pdm"/>
                 <constraint firstItem="NqW-K6-eYH" firstAttribute="leading" secondItem="nnc-qW-8PX" secondAttribute="trailing" id="QHu-6S-wg8"/>
                 <constraint firstItem="4r7-0F-iIx" firstAttribute="top" secondItem="8GI-AZ-BsN" secondAttribute="bottom" constant="40" id="QpO-A8-QPX"/>
+                <constraint firstAttribute="bottom" secondItem="K2b-qK-dV2" secondAttribute="bottom" id="Wb6-HL-syw"/>
                 <constraint firstItem="K2b-qK-dV2" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Wj7-sk-OZY"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="bXd-DY-Tmx" secondAttribute="bottom" constant="21" id="a4H-6P-l7v">
                     <variation key="heightClass=regular-widthClass=compact" constant="21"/>

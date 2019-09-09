@@ -6,8 +6,12 @@
 import Foundation
 import MapKit
 
+protocol MapViewModelDelegate: class {
+  func mapViewModel(_ viewModel: MapViewModel, didRequestToShowWeatherFor city: String)
+}
+
 class MapViewModel {
-  weak var coordinatorDelegate: MapCoordinator?
+  weak var delegate: MapViewModelDelegate?
   
   // MARK: - ViewModel values
   
@@ -66,20 +70,20 @@ class MapViewModel {
   
   // MARK: - Moving between screens
   
-  func goToWeather() {
-    guard let city = selectedCity.value else {return}
-    coordinatorDelegate?.goToWeather(city: city)
+  private func goToWeather() {
+    guard let city = selectedCity.value else { return }
+    delegate?.mapViewModel(self, didRequestToShowWeatherFor: city)
   }
 }
 
 // MARK: - Popup events
 
-extension MapViewModel: MapViewModelDelegate {
-  func onPopupCloseButton() {
+extension MapViewModel: MapPopupViewModelDelegate {
+  func mapPopupViewModelOnCloseButton(_ viewModel: MapPopupViewModel) {
     popupIsOpened.value = false
   }
   
-  func onPopupMainButton() {
+  func mapPopupViewModelOnMainButton(_ viewModel: MapPopupViewModel) {
     goToWeather()
   }
 }

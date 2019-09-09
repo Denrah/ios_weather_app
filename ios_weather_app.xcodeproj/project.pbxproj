@@ -13,7 +13,6 @@
 		F71858E3231FDCEA00288E99 /* WeatherCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71858E2231FDCEA00288E99 /* WeatherCoordinator.swift */; };
 		F71858E6231FDE1300288E99 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71858E4231FDE1300288E99 /* WeatherViewController.swift */; };
 		F71858E7231FDE1300288E99 /* WeatherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F71858E5231FDE1300288E99 /* WeatherViewController.xib */; };
-		F71858E9231FDF6C00288E99 /* MapCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71858E8231FDF6C00288E99 /* MapCoordinatorDelegate.swift */; };
 		F71858EE2320AAA200288E99 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71858ED2320AAA200288E99 /* Weather.swift */; };
 		F71858F02320B26700288E99 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71858EF2320B26700288E99 /* WeatherViewModel.swift */; };
 		F71858F22320B29B00288E99 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71858F12320B29B00288E99 /* ApiService.swift */; };
@@ -32,9 +31,9 @@
 		F729D3E8231FA73D003A2490 /* CALayer+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729D3E7231FA73D003A2490 /* CALayer+Shadow.swift */; };
 		F729D3EB231FA83E003A2490 /* GeocodingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729D3EA231FA83E003A2490 /* GeocodingService.swift */; };
 		F7FDBDF42322611500BA15E5 /* MapPopupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FDBDF32322611500BA15E5 /* MapPopupViewModel.swift */; };
-		F7FDBDF62322685800BA15E5 /* MapViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FDBDF52322685800BA15E5 /* MapViewModelDelegate.swift */; };
 		F7FDBDF8232283EC00BA15E5 /* Double+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FDBDF7232283EC00BA15E5 /* Double+Formatting.swift */; };
 		F7FDBDFA232355B500BA15E5 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FDBDF9232355B500BA15E5 /* Api.swift */; };
+		F7FDBDFC2326220900BA15E5 /* WeatherImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FDBDFB2326220900BA15E5 /* WeatherImages.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +45,6 @@
 		F71858E2231FDCEA00288E99 /* WeatherCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCoordinator.swift; sourceTree = "<group>"; };
 		F71858E4231FDE1300288E99 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		F71858E5231FDE1300288E99 /* WeatherViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherViewController.xib; sourceTree = "<group>"; };
-		F71858E8231FDF6C00288E99 /* MapCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		F71858ED2320AAA200288E99 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		F71858EF2320B26700288E99 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		F71858F12320B29B00288E99 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
@@ -67,9 +65,9 @@
 		F729D3E7231FA73D003A2490 /* CALayer+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Shadow.swift"; sourceTree = "<group>"; };
 		F729D3EA231FA83E003A2490 /* GeocodingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodingService.swift; sourceTree = "<group>"; };
 		F7FDBDF32322611500BA15E5 /* MapPopupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPopupViewModel.swift; sourceTree = "<group>"; };
-		F7FDBDF52322685800BA15E5 /* MapViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModelDelegate.swift; sourceTree = "<group>"; };
 		F7FDBDF7232283EC00BA15E5 /* Double+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Formatting.swift"; sourceTree = "<group>"; };
 		F7FDBDF9232355B500BA15E5 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		F7FDBDFB2326220900BA15E5 /* WeatherImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherImages.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				F71858ED2320AAA200288E99 /* Weather.swift */,
+				F7FDBDFB2326220900BA15E5 /* WeatherImages.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -175,8 +174,6 @@
 				F729D3D4231E1B2F003A2490 /* MapViewController.swift */,
 				F729D3D5231E1B2F003A2490 /* MapViewController.xib */,
 				F729D3DB231E1DAD003A2490 /* MapViewModel.swift */,
-				F71858E8231FDF6C00288E99 /* MapCoordinatorDelegate.swift */,
-				F7FDBDF52322685800BA15E5 /* MapViewModelDelegate.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -345,19 +342,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7FDBDF62322685800BA15E5 /* MapViewModelDelegate.swift in Sources */,
 				F729D3CF231E16F2003A2490 /* Coordinator.swift in Sources */,
 				F71858F02320B26700288E99 /* WeatherViewModel.swift in Sources */,
 				F71858EE2320AAA200288E99 /* Weather.swift in Sources */,
 				F71858E6231FDE1300288E99 /* WeatherViewController.swift in Sources */,
 				F7FDBDFA232355B500BA15E5 /* Api.swift in Sources */,
-				F71858E9231FDF6C00288E99 /* MapCoordinatorDelegate.swift in Sources */,
 				F729D3D6231E1B2F003A2490 /* MapViewController.swift in Sources */,
 				F729D3D1231E1743003A2490 /* AppCoordinator.swift in Sources */,
 				F71858E0231FC9B900288E99 /* CLLocationCoordinate2D+DMS.swift in Sources */,
 				F729D3E8231FA73D003A2490 /* CALayer+Shadow.swift in Sources */,
 				F729D3EB231FA83E003A2490 /* GeocodingService.swift in Sources */,
 				F7FDBDF8232283EC00BA15E5 /* Double+Formatting.swift in Sources */,
+				F7FDBDFC2326220900BA15E5 /* WeatherImages.swift in Sources */,
 				F729D3DA231E1B81003A2490 /* Constants.swift in Sources */,
 				F729D3D3231E1854003A2490 /* MapCoordinator.swift in Sources */,
 				F71858E3231FDCEA00288E99 /* WeatherCoordinator.swift in Sources */,

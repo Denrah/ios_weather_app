@@ -10,7 +10,7 @@ class Dynamic<T> {
   
   var value: T? {
     didSet {
-      guard let bind = bind else {return}
+      guard let bind = bind else { return }
       bind(value)
     }
   }

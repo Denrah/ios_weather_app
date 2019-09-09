@@ -5,21 +5,26 @@
 
 import Foundation
 
+protocol MapPopupViewModelDelegate: class {
+  func mapPopupViewModelOnCloseButton(_ viewModel: MapPopupViewModel)
+  func mapPopupViewModelOnMainButton(_ viewModel: MapPopupViewModel)
+}
+
 class MapPopupViewModel {
-  weak var parentDelegate: MapViewModelDelegate?
+  weak var delegate: MapPopupViewModelDelegate?
   
   let title = Dynamic<String>(nil)
   let subtitle = Dynamic<String>(nil)
   
-  init(delegate: MapViewModelDelegate) {
-    parentDelegate = delegate
+  init(delegate: MapPopupViewModelDelegate) {
+    self.delegate = delegate
   }
   
   func onCloseButton() {
-    parentDelegate?.onPopupCloseButton()
+    delegate?.mapPopupViewModelOnCloseButton(self)
   }
   
   func onMainButton() {
-    parentDelegate?.onPopupMainButton()
+    delegate?.mapPopupViewModelOnMainButton(self)
   }
 }

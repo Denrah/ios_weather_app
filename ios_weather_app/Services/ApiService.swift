@@ -5,10 +5,23 @@
 
 import Alamofire
 
+enum ApiErrors: Error {
+  case badCityError
+}
+
+extension ApiErrors: LocalizedError {
+  public var errorDescription: String? {
+    switch self {
+    case .badCityError:
+      return "Can't get weather for current city"
+    }
+  }
+}
+
 class ApiService {
-  func getWeatherByCity(city: String, completion: @escaping (Weather?) -> Void) {
+  func getWeatherByCity(city: String, completion: @escaping (Swift.Result<Weather?, Error>) -> Void) {
     guard let ecnodedCity = city.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
-      completion(nil)
+      completion(Swift.Result.failure(ApiErrors.badCityError))
       return
     }
     Alamofire.request(Constants.apiUrl
@@ -23,16 +36,14 @@ class ApiService {
           
           do {
             let weather = try decoder.decode(Weather.self, from: data)
-            completion(weather)
+            completion(Swift.Result.success(weather))
             
           } catch let error {
-            print(error)
-            completion(nil)
+            completion(Swift.Result.failure(error))
             return
           }
         case .failure(let error):
-          print(error)
-          completion(nil)
+          completion(Swift.Result.failure(error))
         }
     }
   }

@@ -7,7 +7,7 @@ import UIKit
 
 class MapPopupView: UIView {
   @IBOutlet private weak var contentView: UIView!
-  @IBOutlet private weak var showWeatherBtn: UIButton!
+  @IBOutlet private weak var showWeatherButton: UIButton!
   @IBOutlet private weak var titleLabel: UILabel!
   @IBOutlet private weak var subtitleLabel: UILabel!
   
@@ -46,19 +46,19 @@ class MapPopupView: UIView {
     contentView.frame = bounds
     contentView.layer.setStandartShadow()
     
-    showWeatherBtn.layer.borderWidth = 1
-    showWeatherBtn.layer.borderColor = showWeatherBtn.tintColor.cgColor
-    showWeatherBtn.layer.cornerRadius = 22
+    showWeatherButton.layer.borderWidth = 1
+    showWeatherButton.layer.borderColor = showWeatherButton.tintColor.cgColor
+    showWeatherButton.layer.cornerRadius = 22
     addSubview(contentView)
   }
   
   // MARK: - Popup events
   
-  @IBAction private func onCloseBtn() {
+  @IBAction private func onCloseButton() {
     viewModel?.onCloseButton()
   }
   
-  @IBAction private func onMainBtn() {
+  @IBAction private func onMainButton() {
     viewModel?.onMainButton()
   }
   

@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController" customModule="ios_weather_app" customModuleProvider="target">
             <connections>
-                <outlet property="mapPopup" destination="Qz4-Y4-68V" id="FrS-Uz-pZf"/>
+                <outlet property="mapPopupView" destination="Qz4-Y4-68V" id="yzb-jm-g1j"/>
                 <outlet property="mapView" destination="iie-AA-UhY" id="qiI-TS-vxh"/>
                 <outlet property="navbarShadowView" destination="iho-fa-8tL" id="Vvv-xh-6tM"/>
                 <outlet property="popupBottomConstraint" destination="A9d-CA-HOC" id="1i2-OF-rRX"/>
@@ -48,15 +48,15 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Qz4-Y4-68V" secondAttribute="bottom" constant="-200" id="A9d-CA-HOC"/>
                 <constraint firstItem="iie-AA-UhY" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="H3I-17-MVi"/>
                 <constraint firstItem="Qz4-Y4-68V" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="MjO-Mg-v0x"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="iie-AA-UhY" secondAttribute="bottom" id="QVt-UW-NQa"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Qz4-Y4-68V" secondAttribute="trailing" constant="16" id="RDA-Tb-mQy"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="iie-AA-UhY" secondAttribute="trailing" id="SII-sb-jfS"/>
                 <constraint firstItem="iho-fa-8tL" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="-10" id="SYN-5C-kHU"/>
                 <constraint firstItem="iho-fa-8tL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="iuU-uk-wgE"/>
                 <constraint firstItem="iie-AA-UhY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="neg-jH-y0E"/>
+                <constraint firstAttribute="bottom" secondItem="iie-AA-UhY" secondAttribute="bottom" id="yxZ-ct-ADD"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="47.200000000000003" y="42.728635682158924"/>
+            <point key="canvasLocation" x="47.200000000000003" y="42.118226600985224"/>
         </view>
     </objects>
 </document>

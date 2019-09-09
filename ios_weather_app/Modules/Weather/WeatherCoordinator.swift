@@ -18,12 +18,18 @@ class WeatherCoordinator: Coordinator {
   override func start() {
     let apiService = ApiService()
     let weatherViewModel = WeatherViewModel(apiService: apiService, city: city)
-    weatherViewModel.coordinatorDelegate = self
+    weatherViewModel.delegate = self
     let weatherViewController = WeatherViewController(viewModel: weatherViewModel)
     rootViewController.pushViewController(weatherViewController, animated: true)
   }
   
   override func finish() {
     delegate?.didFinish(from: self)
+  }
+}
+
+extension WeatherCoordinator: WeatherViewModelDelegate {
+  func weatherViewModelDidFinish(_ viewModel: WeatherViewModel) {
+    finish()
   }
 }

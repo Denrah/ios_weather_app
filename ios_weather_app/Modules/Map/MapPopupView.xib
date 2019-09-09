@@ -13,7 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapPopupView">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="sdv-5Q-T2W"/>
-                <outlet property="showWeatherBtn" destination="YyV-TF-TwG" id="t7N-ZC-BPs"/>
+                <outlet property="showWeatherButton" destination="YyV-TF-TwG" id="C6c-rt-Awv"/>
                 <outlet property="subtitleLabel" destination="HnW-QH-Zcn" id="hZr-RL-kvM"/>
                 <outlet property="titleLabel" destination="kJJ-6B-7zw" id="BoH-Pu-Ftf"/>
             </connections>
@@ -37,7 +37,7 @@
                     </constraints>
                     <state key="normal" image="close"/>
                     <connections>
-                        <action selector="onCloseBtn" destination="-1" eventType="touchUpInside" id="ngC-xr-1xN"/>
+                        <action selector="onCloseButton" destination="-1" eventType="touchUpInside" id="dHT-fd-Plf"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YyV-TF-TwG">
@@ -49,7 +49,7 @@
                         <color key="titleColor" red="0.29019607843137252" green="0.56470588235294117" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
-                        <action selector="onMainBtn" destination="-1" eventType="touchUpInside" id="DW5-gc-dVD"/>
+                        <action selector="onMainButton" destination="-1" eventType="touchUpInside" id="hQp-90-2Rj"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45°16'44.7&quot;N 9°43'33.2&quot;E" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HnW-QH-Zcn">

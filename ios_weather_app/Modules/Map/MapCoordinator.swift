@@ -5,6 +5,10 @@
 
 import UIKit
 
+protocol MapCoordinatorDelegate: class {
+  func didFinish(from coordinator: WeatherCoordinator)
+}
+
 class MapCoordinator: Coordinator {
   let rootViewController: UINavigationController
   
@@ -15,25 +19,25 @@ class MapCoordinator: Coordinator {
   override func start() {
     let geocodingService = GeocodingService()
     let mapViewModel = MapViewModel(geocodingService: geocodingService)
-    mapViewModel.coordinatorDelegate = self
+    mapViewModel.delegate = self
     let mapViewController = MapViewController(viewModel: mapViewModel)
     rootViewController.setViewControllers([mapViewController], animated: false)
-  }
-}
-
-// MARK: - transitions between scenes
-
-extension MapCoordinator {
-  func goToWeather(city: String) {
-    let weatherCoordinator = WeatherCoordinator(rootViewController: self.rootViewController, city: city)
-    weatherCoordinator.delegate = self
-    addChildCoordinator(weatherCoordinator)
-    weatherCoordinator.start()
   }
 }
 
 extension MapCoordinator: MapCoordinatorDelegate {
   func didFinish(from coordinator: WeatherCoordinator) {
     removeChildCoordinator(coordinator)
+  }
+}
+
+// MARK: - transitions between scenes
+
+extension MapCoordinator: MapViewModelDelegate {
+  func mapViewModel(_ viewModel: MapViewModel, didRequestToShowWeatherFor city: String) {
+    let weatherCoordinator = WeatherCoordinator(rootViewController: self.rootViewController, city: city)
+    weatherCoordinator.delegate = self
+    addChildCoordinator(weatherCoordinator)
+    weatherCoordinator.start()
   }
 }

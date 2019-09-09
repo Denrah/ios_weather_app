@@ -4,26 +4,47 @@
 //
 
 struct WeatherInfo: Codable {
-  var id: Int?
-  var main: String?
-  var description: String?
-  var icon: String?
+  let id: Int?
+  let description: String?
+  let icon: String?
+  
+  enum CodingKeys: String, CodingKey {
+    case description
+    case icon
+    case id
+  }
 }
 
 struct WeatherDetails: Codable {
-  var temp: Double?
-  var pressure: Double?
-  var humidity: Double?
+  let temperature: Double?
+  let pressure: Double?
+  let humidity: Double?
+  
+  enum CodingKeys: String, CodingKey {
+    case temperature = "temp"
+    case pressure
+    case humidity
+  }
 }
 
 struct WeatherWind: Codable {
-  var speed: Double?
-  var deg: Double?
+  let speed: Double?
+  let direction: Double?
+  
+  enum CodingKeys: String, CodingKey {
+    case speed
+    case direction = "deg"
+  }
 }
 
 struct Weather: Codable {
-  var weather: [WeatherInfo]
-  var main: WeatherDetails
-  var wind: WeatherWind
-  var name: String?
+  let info: [WeatherInfo]?
+  let details: WeatherDetails?
+  let wind: WeatherWind?
+  
+  enum CodingKeys: String, CodingKey {
+    case info = "weather"
+    case details = "main"
+    case wind
+  }
 }

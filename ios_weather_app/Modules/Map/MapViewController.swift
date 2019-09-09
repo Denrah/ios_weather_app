@@ -9,7 +9,7 @@ import SVProgressHUD
 
 class MapViewController: UIViewController {
   @IBOutlet private weak var mapView: MKMapView!
-  @IBOutlet private weak var mapPopup: MapPopupView!
+  @IBOutlet private weak var mapPopupView: MapPopupView!
   @IBOutlet private weak var navbarShadowView: UIView!
   @IBOutlet private weak var popupBottomConstraint: NSLayoutConstraint!
   
@@ -36,20 +36,20 @@ class MapViewController: UIViewController {
   
   private func bindToViewModel() {
     self.viewModel.selectedCity.bind = {[weak self] in
-      guard let self = self else {return}
+      guard let self = self else { return }
       guard let cityName = $0 else {
         self.closePopup()
         return
       }
       
-      self.mapPopup.viewModel?.title.value = cityName
+      self.mapPopupView.viewModel?.title.value = cityName
       self.showPopup()
     }
     
     self.viewModel.geocodingInProgress.bind = {
-      guard let value = $0 else {return}
+      guard let geocodingInProgress = $0 else { return }
       
-      if value {
+      if geocodingInProgress {
         SVProgressHUD.show()
       } else {
         SVProgressHUD.dismiss()
@@ -57,7 +57,7 @@ class MapViewController: UIViewController {
     }
     
     self.viewModel.popupIsOpened.bind = {
-      guard let isOpened = $0 else {return}
+      guard let isOpened = $0 else { return }
       
       if isOpened {
         self.showPopup()
@@ -67,10 +67,10 @@ class MapViewController: UIViewController {
     }
     
     self.viewModel.selectedCoordinate.bind = {[weak self] in
-      guard let self = self else {return}
-      guard let coordinate = $0 else {return}
+      guard let self = self else { return }
+      guard let coordinate = $0 else { return }
       
-      self.mapPopup.viewModel?.subtitle.value = coordinate.dmsCoordinate ?? "-"
+      self.mapPopupView.viewModel?.subtitle.value = coordinate.dmsCoordinate ?? "-"
       let annotation = MKPointAnnotation()
       annotation.coordinate = coordinate
       self.mapView.removeAnnotations(self.mapView.annotations)
@@ -87,7 +87,7 @@ class MapViewController: UIViewController {
     SVProgressHUD.setDefaultMaskType(.black)
 
     let popupViewModel = MapPopupViewModel(delegate: viewModel)
-    mapPopup.setup(with: popupViewModel)
+    mapPopupView.setup(with: popupViewModel)
     
     configureNavigationBar()
     configureMap()
@@ -140,8 +140,8 @@ class MapViewController: UIViewController {
 
 extension MapViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
-    guard let text = searchController.searchBar.text else {return}
-    guard !text.isEmpty else {return}
+    guard let text = searchController.searchBar.text else { return }
+    guard !text.isEmpty else { return }
     self.viewModel.geocodeCoordinateFromCity(city: text)
   }
 }
