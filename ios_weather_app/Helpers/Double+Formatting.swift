@@ -7,15 +7,26 @@ import Foundation
 
 extension Double {
   var compassDirection: String {
-    if self > 337.5 { return "N" }
-    if self > 292.5 { return "NW" }
-    if self > 247.5 { return "W" }
-    if self > 202.5 { return "SW" }
-    if self > 157.5 { return "S" }
-    if self > 122.5 { return "SE" }
-    if self > 67.5 { return "E" }
-    if self > 22.5 { return "NE" }
-    return "N"
+    switch self {
+    case 337.5...360, 0...22.5:
+      return "N"
+    case 22.5...67.5:
+      return "NE"
+    case 67.5...122.5:
+      return "E"
+    case 122.5...157.5:
+      return "SE"
+    case 157.5...202.5:
+      return "S"
+    case 202.5...247.5:
+      return "SW"
+    case 247.5...292.5:
+      return "W"
+    case 292.5...337.5:
+      return "NW"
+    default:
+      return ""
+    }
   }
   
   func removeZerosFromEnd() -> String {

@@ -54,6 +54,7 @@ class WeatherViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
         self.viewModel.goBack()
       })
+      SVProgressHUD.dismiss()
       self.present(alert, animated: true, completion: nil)
     }
     

@@ -21,7 +21,7 @@ class MapViewModel {
   let popupIsOpened = Dynamic<Bool>(false)
   
   private let geocodingService: GeocodingService
-  private var searchDelayTimer: Timer?
+  private var searchDelayDispatch: DispatchWorkItem?
   
   init(geocodingService: GeocodingService) {
     self.geocodingService = geocodingService
@@ -45,9 +45,11 @@ class MapViewModel {
   }
   
   func geocodeCoordinateFromCity(city: String) {
-    searchDelayTimer?.invalidate()
+    searchDelayDispatch?.cancel()
     
-    searchDelayTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { _ in
+    searchDelayDispatch = DispatchWorkItem { [weak self] in
+      guard let self = self else { return }
+      
       self.geocodingInProgress.value = true
       self.geocodingService.coordinatesFromCity(city: city) { result in
         self.geocodingInProgress.value = false
@@ -61,6 +63,10 @@ class MapViewModel {
           self.selectedCity.value = nil
         }
       }
+    }
+    
+    if let searchDelayDispatch = searchDelayDispatch {
+      DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: searchDelayDispatch)
     }
   }
   

@@ -158,6 +158,7 @@
                     <variation key="heightClass=compact-widthClass=regular" constant="250"/>
                     <variation key="heightClass=regular-widthClass=compact" constant="16"/>
                 </constraint>
+                <constraint firstItem="D2m-0J-Uc7" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Cec-pV-rFu" secondAttribute="bottom" constant="8" id="kFL-jN-SSC"/>
                 <constraint firstItem="K2b-qK-dV2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="D2m-0J-Uc7" secondAttribute="trailing" constant="32" id="lzc-CT-04r"/>
                 <constraint firstItem="nnc-qW-8PX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="pJ4-4U-Sbv"/>
                 <constraint firstItem="D2m-0J-Uc7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="250" id="pVj-7J-zCd">

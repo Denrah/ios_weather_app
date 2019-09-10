@@ -50,6 +50,7 @@ class WeatherViewModel {
     guard let city = city.value else { return }
     loadingInProgress.value = true
     apiService.getWeatherByCity(city: city) { result in
+      self.loadingInProgress.value = false
       switch result {
       case .success(let weather):
         
@@ -76,8 +77,6 @@ class WeatherViewModel {
       case .failure(let error):
         self.apiError.value = error
       }
-      
-      self.loadingInProgress.value = false
     }
   }
   
