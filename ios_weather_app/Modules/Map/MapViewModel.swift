@@ -79,11 +79,11 @@ class MapViewModel {
 // MARK: - Popup events
 
 extension MapViewModel: MapPopupViewModelDelegate {
-  func mapPopupViewModelOnCloseButton(_ viewModel: MapPopupViewModel) {
+  func mapPopupViewModelDidTapClose(_ viewModel: MapPopupViewModel) {
     popupIsOpened.value = false
   }
   
-  func mapPopupViewModelOnMainButton(_ viewModel: MapPopupViewModel) {
+  func mapPopupViewModelDidTapShowWeather(_ viewModel: MapPopupViewModel) {
     goToWeather()
   }
 }

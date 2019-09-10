@@ -5,9 +5,13 @@
 
 import UIKit
 
+protocol WeatherCoordinatorDelegate: class {
+  func didFinish(from coordinator: WeatherCoordinator)
+}
+
 class WeatherCoordinator: Coordinator {
   let rootViewController: UINavigationController
-  weak var delegate: MapCoordinatorDelegate?
+  weak var delegate: WeatherCoordinatorDelegate?
   let city: String
   
   init(rootViewController: UINavigationController, city: String) {

@@ -19,6 +19,7 @@ class MapViewController: UIViewController {
     static let mapPopupBottomOpenMargin: CGFloat = 16
     static let mapPopupBottomCloseMargin: CGFloat = -200
     static let appName = "Global Weather"
+    static let backButtonTitle = "Map"
   }
   
   let viewModel: MapViewModel
@@ -102,7 +103,8 @@ class MapViewController: UIViewController {
   private func configureNavigationBar() {
     navigationController?.navigationBar.barTintColor = UIColor.white
     navigationItem.title = MapConstants.appName
-    navigationItem.backBarButtonItem = UIBarButtonItem(title: "Map", style: .plain, target: nil, action: nil)
+    navigationItem.backBarButtonItem = UIBarButtonItem(title: MapConstants.backButtonTitle,
+                                                       style: .plain, target: nil, action: nil)
     
     navbarShadowView.layer.setStandartShadow()
     

@@ -5,10 +5,6 @@
 
 import UIKit
 
-protocol MapCoordinatorDelegate: class {
-  func didFinish(from coordinator: WeatherCoordinator)
-}
-
 class MapCoordinator: Coordinator {
   let rootViewController: UINavigationController
   
@@ -25,7 +21,7 @@ class MapCoordinator: Coordinator {
   }
 }
 
-extension MapCoordinator: MapCoordinatorDelegate {
+extension MapCoordinator: WeatherCoordinatorDelegate {
   func didFinish(from coordinator: WeatherCoordinator) {
     removeChildCoordinator(coordinator)
   }

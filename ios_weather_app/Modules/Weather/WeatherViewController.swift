@@ -18,6 +18,11 @@ class WeatherViewController: UIViewController {
   @IBOutlet private weak var weatherImageView: UIImageView!
   @IBOutlet private weak var degreesIconView: UIView!
   
+  private enum WeatherConstants {
+    static let errorAlertTitle = "Error!"
+    static let errorAlertDismissButtonText = "OK"
+  }
+  
   let viewModel: WeatherViewModel
   
   init(viewModel: WeatherViewModel) {
@@ -43,8 +48,9 @@ class WeatherViewController: UIViewController {
     viewModel.apiError.bind = { [weak self] in
       guard let self = self else { return }
       guard let error = $0 else { return }
-      let alert = UIAlertController(title: "Error!", message: error.localizedDescription, preferredStyle: .alert)
-      alert.addAction(UIAlertAction(title: "OK", style: .cancel) { _ in
+      let alert = UIAlertController(title: WeatherConstants.errorAlertTitle,
+                                    message: error.localizedDescription, preferredStyle: .alert)
+      alert.addAction(UIAlertAction(title: WeatherConstants.errorAlertDismissButtonText, style: .cancel) { _ in
         self.navigationController?.popViewController(animated: true)
         self.viewModel.goBack()
       })
@@ -62,49 +68,34 @@ class WeatherViewController: UIViewController {
   }
   
   private func bindWeatherValues() {
-    viewModel.temperature.bind = { [weak self] in
-      guard let self = self else { return }
-      guard let temperature = $0 else { return }
-      self.temperatureLabel.text = temperature
+    viewModel.temperature.bind = { [weak self] temperature in
+      temperature.flatMap { self?.temperatureLabel.text = $0 }
     }
     
-    viewModel.humidity.bind = { [weak self] in
-      guard let self = self else { return }
-      guard let humidity = $0 else { return }
-      self.humidityLabel.text = humidity
+    viewModel.humidity.bind = { [weak self] humidity in
+      humidity.flatMap { self?.humidityLabel.text = $0 }
     }
     
-    viewModel.wind.bind = { [weak self] in
-      guard let self = self else { return }
-      guard let wind = $0 else { return }
-      self.windLabel.text = wind
+    viewModel.wind.bind = { [weak self] wind in
+      wind.flatMap { self?.windLabel.text = $0 }
     }
     
-    viewModel.pressure.bind = { [weak self] in
-      guard let self = self else { return }
-      guard let pressure = $0 else { return }
-      self.pressureLabel.text = pressure
+    viewModel.pressure.bind = { [weak self] pressure in
+      pressure.flatMap { self?.pressureLabel.text = $0 }
     }
     
-    viewModel.weatherDescription.bind = { [weak self] in
-      guard let self = self else { return }
-      guard let weatherDescription = $0 else { return }
-      self.descriptionLabel.text = weatherDescription.capitalized
+    viewModel.weatherDescription.bind = { [weak self] weatherDescription in
+      weatherDescription.flatMap { self?.descriptionLabel.text = $0 }
     }
   }
   
   private func bindImages() {
-    viewModel.weatherImage.bind = { [weak self] in
-      guard let self = self else { return }
-      guard let weatherImage = $0 else { return }
-      self.weatherImageView.image = weatherImage
+    viewModel.weatherImage.bind = { [weak self] weatherImage in
+      weatherImage.flatMap { self?.weatherImageView.image = $0 }
     }
     
-    viewModel.weatherIcon.bind = { [weak self] in
-      guard let self = self else { return }
-      guard let weatherIcon = $0 else { return }
-      let iconUrl = URL(string: "\(Constants.apiIconsUrl)/img/wn/\(weatherIcon)@2x.png")
-      self.weatherIconImageView.kf.setImage(with: iconUrl)
+    viewModel.weatherIcon.bind = { [weak self] weatherIcon in
+      _ = weatherIcon.flatMap { self?.weatherIconImageView.kf.setImage(with: $0) }
     }
   }
   

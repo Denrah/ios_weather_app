@@ -15,7 +15,7 @@ class WeatherViewModel {
   let loadingInProgress = Dynamic<Bool>(true)
   let city = Dynamic<String>(nil)
   let weatherImage = Dynamic<UIImage>(nil)
-  let weatherIcon = Dynamic<String>(nil)
+  let weatherIcon = Dynamic<URL>(nil)
   let temperature = Dynamic<String>(nil)
   let humidity = Dynamic<String>(nil)
   let wind = Dynamic<String>(nil)
@@ -39,7 +39,7 @@ class WeatherViewModel {
     weatherImages.append(range: 520...531, image: #imageLiteral(resourceName: "showerrain"))
     weatherImages.append(range: 500...511, image: #imageLiteral(resourceName: "rain"))
     weatherImages.append(range: 600...622, image: #imageLiteral(resourceName: "snow"))
-    weatherImages.append(range: 701...781, image: #imageLiteral(resourceName: "snow"))
+    weatherImages.append(range: 701...781, image: #imageLiteral(resourceName: "mist"))
     weatherImages.append(range: 800...800, image: #imageLiteral(resourceName: "clearsky"))
     weatherImages.append(range: 801...801, image: #imageLiteral(resourceName: "fewclouds"))
     weatherImages.append(range: 802...802, image: #imageLiteral(resourceName: "scatteredclouds"))
@@ -52,7 +52,6 @@ class WeatherViewModel {
     apiService.getWeatherByCity(city: city) { result in
       switch result {
       case .success(let weather):
-        guard let weather = weather else { return }
         
         if let temperature = weather.details?.temperature {
           self.temperature.value = "\(Int(temperature))"
@@ -66,8 +65,11 @@ class WeatherViewModel {
         let windDirection = weather.wind?.direction?.compassDirection ?? ""
         let windSpeed = weather.wind?.speed?.removeZerosFromEnd() ?? ""
         self.wind.value = "\(windDirection) \(windSpeed) m/s"
-        self.weatherDescription.value = weather.info?.first?.description
-        self.weatherIcon.value = weather.info?.first?.icon
+        self.weatherDescription.value = weather.info?.first?.description?.capitalized
+        
+        if let icon = weather.info?.first?.icon {
+        self.weatherIcon.value = URL(string: "\(Constants.apiIconsUrl)/img/wn/\(icon)@2x.png")
+        }
         if let id = weather.info?.first?.id {
           self.weatherImage.value = self.weatherImages[id]
         }

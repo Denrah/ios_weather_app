@@ -58,8 +58,8 @@ class MapPopupView: UIView {
     viewModel?.onCloseButton()
   }
   
-  @IBAction private func onMainButton() {
-    viewModel?.onMainButton()
+  @IBAction private func onShowWeatherButton() {
+    viewModel?.onShowWeatherButton()
   }
   
 }

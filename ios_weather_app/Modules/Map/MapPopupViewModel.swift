@@ -6,8 +6,8 @@
 import Foundation
 
 protocol MapPopupViewModelDelegate: class {
-  func mapPopupViewModelOnCloseButton(_ viewModel: MapPopupViewModel)
-  func mapPopupViewModelOnMainButton(_ viewModel: MapPopupViewModel)
+  func mapPopupViewModelDidTapClose(_ viewModel: MapPopupViewModel)
+  func mapPopupViewModelDidTapShowWeather(_ viewModel: MapPopupViewModel)
 }
 
 class MapPopupViewModel {
@@ -21,10 +21,10 @@ class MapPopupViewModel {
   }
   
   func onCloseButton() {
-    delegate?.mapPopupViewModelOnCloseButton(self)
+    delegate?.mapPopupViewModelDidTapClose(self)
   }
   
-  func onMainButton() {
-    delegate?.mapPopupViewModelOnMainButton(self)
+  func onShowWeatherButton() {
+    delegate?.mapPopupViewModelDidTapShowWeather(self)
   }
 }
