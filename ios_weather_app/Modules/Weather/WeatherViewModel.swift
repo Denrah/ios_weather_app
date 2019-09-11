@@ -14,17 +14,15 @@ class WeatherViewModel {
   
   let loadingInProgress = Dynamic<Bool>(true)
   let city = Dynamic<String>(nil)
-  let weatherImage = Dynamic<UIImage>(nil)
-  let weatherIcon = Dynamic<URL>(nil)
-  let temperature = Dynamic<String>(nil)
-  let humidity = Dynamic<String>(nil)
-  let wind = Dynamic<String>(nil)
-  let pressure = Dynamic<String>(nil)
-  let weatherDescription = Dynamic<String>(nil)
+  let weatherState = Dynamic<WeatherState>(nil)
   let apiError = Dynamic<Error>(nil)
   
   private let apiService: ApiService
   private var weatherImages: WeatherImages
+  
+  private enum WeatherConstants {
+    static let placeholder = "-"
+  }
   
   init(apiService: ApiService, city: String) {
     self.city.value = city
@@ -53,31 +51,46 @@ class WeatherViewModel {
       self.loadingInProgress.value = false
       switch result {
       case .success(let weather):
-        
-        if let temperature = weather.details?.temperature {
-          self.temperature.value = "\(Int(temperature))"
-        }
-        if let humidity = weather.details?.humidity {
-          self.humidity.value = "\(humidity.removeZerosFromEnd())%"
-        }
-        if let pressure = weather.details?.pressure {
-          self.pressure.value = "\(pressure.removeZerosFromEnd()) mm Hg"
-        }
-        let windDirection = weather.wind?.direction?.compassDirection ?? ""
-        let windSpeed = weather.wind?.speed?.removeZerosFromEnd() ?? ""
-        self.wind.value = "\(windDirection) \(windSpeed) m/s"
-        self.weatherDescription.value = weather.info?.first?.description?.capitalized
-        
-        if let icon = weather.info?.first?.icon {
-        self.weatherIcon.value = URL(string: "\(Constants.apiIconsUrl)/img/wn/\(icon)@2x.png")
-        }
-        if let id = weather.info?.first?.id {
-          self.weatherImage.value = self.weatherImages[id]
-        }
+        self.updateWeather(weather: weather)
       case .failure(let error):
         self.apiError.value = error
       }
     }
+  }
+  
+  private func updateWeather(weather: Weather) {
+    var state = WeatherState()
+    
+    if let temperature = weather.details?.temperature {
+      state.temperature = "\(Int(temperature))"
+    } else {
+      state.temperature = WeatherConstants.placeholder
+    }
+    
+    if let humidity = weather.details?.humidity {
+      state.humidity = "\(humidity.removeZerosFromEnd())%"
+    } else {
+      state.humidity = WeatherConstants.placeholder
+    }
+    
+    if let pressure = weather.details?.pressure {
+      state.pressure = "\(pressure.removeZerosFromEnd()) mm Hg"
+    } else {
+      state.pressure = WeatherConstants.placeholder
+    }
+    
+    let windDirection = weather.wind?.direction?.compassDirection ?? ""
+    let windSpeed = weather.wind?.speed?.removeZerosFromEnd() ?? WeatherConstants.placeholder
+    state.wind = "\(windDirection) \(windSpeed) m/s"
+    state.weathrDescription = weather.info?.first?.description?.capitalized ?? WeatherConstants.placeholder
+    
+    if let icon = weather.info?.first?.icon {
+      state.weathrIcon = URL(string: "\(Constants.apiIconsUrl)/img/wn/\(icon)@2x.png")
+    }
+    if let id = weather.info?.first?.id {
+      state.weatherImage = self.weatherImages[id]
+    }
+    self.weatherState.value = state
   }
   
   func goBack() {

@@ -25,38 +25,50 @@ extension ApiErrors: LocalizedError {
 }
 
 class ApiService {
-  func getWeatherByCity(city: String, completion: @escaping (Swift.Result<Weather, Error>) -> Void) {
-    guard let ecnodedCity = city.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
-      completion(Swift.Result.failure(ApiErrors.badCityError))
-      return
-    }
-    Alamofire.request(Constants.apiUrl
-      + "/data/2.5/weather?q="
-      + ecnodedCity
-      + "&units=metric&APPID="
-      + Api.key).responseData { response in
-        
-        switch response.result {
-        case .success(let data):
-          
-          guard response.response?.statusCode == 200 else {
-            completion(.failure(self.handleError(statusCode: response.response?.statusCode)))
-            return
-          }
-          
-          let decoder = JSONDecoder()
-          
-          do {
-            let weather = try decoder.decode(Weather.self, from: data)
-            completion(Swift.Result.success(weather))
-            
-          } catch let error {
-            completion(Swift.Result.failure(error))
-            return
-          }
-        case .failure(let error):
-          completion(Swift.Result.failure(error))
+  private func baseRequest<T>(ofType: T.Type, method: HTTPMethod, url: String,
+                              parameters: Parameters? = nil, encoding: ParameterEncoding = JSONEncoding.default,
+                              completion: @escaping (Swift.Result<T, Error>) -> Void) where T: Decodable {
+    Alamofire.request(url, method: method,
+                      parameters: parameters, encoding: encoding, headers: nil).responseData { response in
+      switch response.result {
+      case .success(let data):
+        guard let statusCode = response.response?.statusCode else {
+          completion(.failure(ApiErrors.serverError))
+          return
         }
+        guard case 200...206 = statusCode else {
+          completion(.failure(self.handleError(statusCode: response.response?.statusCode)))
+          return
+        }
+        
+        let decoder = JSONDecoder()
+        
+        do {
+          let decodedData = try decoder.decode(T.self, from: data)
+          completion(Swift.Result.success(decodedData))
+          
+        } catch let error {
+          completion(Swift.Result.failure(error))
+          return
+        }
+      case .failure(let error):
+        completion(.failure(error))
+      }
+    }
+  }
+  
+  func getWeatherByCity(city: String, completion: @escaping (Swift.Result<Weather, Error>) -> Void) {
+    let url = Constants.apiUrl + "/data/2.5/weather"
+    
+    let params = [
+      "q": city,
+      "units": "metric",
+      "APPID": Api.key
+    ]
+    
+    baseRequest(ofType: Weather.self, method: HTTPMethod.get,
+                url: url, parameters: params, encoding: URLEncoding.default) { result in
+      completion(result)
     }
   }
   

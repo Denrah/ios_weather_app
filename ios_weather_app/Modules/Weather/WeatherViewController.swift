@@ -42,9 +42,6 @@ class WeatherViewController: UIViewController {
   // MARK: - Scene setup
   
   private func bindToViewModel() {
-    bindWeatherValues()
-    bindImages()
-    
     viewModel.apiError.bind = { [weak self] in
       guard let self = self else { return }
       guard let error = $0 else { return }
@@ -58,6 +55,19 @@ class WeatherViewController: UIViewController {
       self.present(alert, animated: true, completion: nil)
     }
     
+    viewModel.weatherState.bind = { [weak self] state in
+      guard let self = self else { return }
+      guard let state = state else { return }
+      
+      self.temperatureLabel.text = state.temperature
+      self.humidityLabel.text = state.humidity
+      self.windLabel.text = state.wind
+      self.pressureLabel.text = state.pressure
+      self.descriptionLabel.text = state.weathrDescription
+      self.weatherImageView.image = state.weatherImage
+      self.weatherIconImageView.kf.setImage(with: state.weathrIcon)
+    }
+    
     viewModel.loadingInProgress.bind = {
       guard let loadingInProgress = $0 else { return }
       if loadingInProgress {
@@ -65,38 +75,6 @@ class WeatherViewController: UIViewController {
       } else {
         SVProgressHUD.dismiss()
       }
-    }
-  }
-  
-  private func bindWeatherValues() {
-    viewModel.temperature.bind = { [weak self] temperature in
-      temperature.flatMap { self?.temperatureLabel.text = $0 }
-    }
-    
-    viewModel.humidity.bind = { [weak self] humidity in
-      humidity.flatMap { self?.humidityLabel.text = $0 }
-    }
-    
-    viewModel.wind.bind = { [weak self] wind in
-      wind.flatMap { self?.windLabel.text = $0 }
-    }
-    
-    viewModel.pressure.bind = { [weak self] pressure in
-      pressure.flatMap { self?.pressureLabel.text = $0 }
-    }
-    
-    viewModel.weatherDescription.bind = { [weak self] weatherDescription in
-      weatherDescription.flatMap { self?.descriptionLabel.text = $0 }
-    }
-  }
-  
-  private func bindImages() {
-    viewModel.weatherImage.bind = { [weak self] weatherImage in
-      weatherImage.flatMap { self?.weatherImageView.image = $0 }
-    }
-    
-    viewModel.weatherIcon.bind = { [weak self] weatherIcon in
-      _ = weatherIcon.flatMap { self?.weatherIconImageView.kf.setImage(with: $0) }
     }
   }
   

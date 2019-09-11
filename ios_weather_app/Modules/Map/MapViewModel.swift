@@ -19,9 +19,10 @@ class MapViewModel {
   let selectedCoordinate = Dynamic<CLLocationCoordinate2D>(Constants.mapInitialCoordinate)
   let geocodingInProgress = Dynamic<Bool>(false)
   let popupIsOpened = Dynamic<Bool>(false)
+  let geocodingError = Dynamic<Error>(nil)
   
   private let geocodingService: GeocodingService
-  private var searchDelayDispatch: DispatchWorkItem?
+  private var searchTask: DispatchWorkItem?
   
   init(geocodingService: GeocodingService) {
     self.geocodingService = geocodingService
@@ -45,9 +46,9 @@ class MapViewModel {
   }
   
   func geocodeCoordinateFromCity(city: String) {
-    searchDelayDispatch?.cancel()
+    searchTask?.cancel()
     
-    searchDelayDispatch = DispatchWorkItem { [weak self] in
+    searchTask = DispatchWorkItem { [weak self] in
       guard let self = self else { return }
       
       self.geocodingInProgress.value = true
@@ -59,14 +60,13 @@ class MapViewModel {
           self.selectedCity.value = placemark?.locality
           self.selectedCoordinate.value = placemark?.location?.coordinate
         case .failure(let error):
-          print(error)
-          self.selectedCity.value = nil
+          self.geocodingError.value = error
         }
       }
     }
     
-    if let searchDelayDispatch = searchDelayDispatch {
-      DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: searchDelayDispatch)
+    if let searchTask = searchTask {
+      DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: searchTask)
     }
   }
   

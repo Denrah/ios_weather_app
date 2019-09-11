@@ -36,7 +36,7 @@ class MapViewController: UIViewController {
   // MARK: - Scene configuration
   
   private func bindToViewModel() {
-    self.viewModel.selectedCity.bind = {[weak self] in
+    self.viewModel.selectedCity.bind = { [weak self] in
       guard let self = self else { return }
       guard let cityName = $0 else {
         self.closePopup()
@@ -67,7 +67,7 @@ class MapViewController: UIViewController {
       }
     }
     
-    self.viewModel.selectedCoordinate.bind = {[weak self] in
+    self.viewModel.selectedCoordinate.bind = { [weak self] in
       guard let self = self else { return }
       guard let coordinate = $0 else { return }
       
@@ -77,6 +77,12 @@ class MapViewController: UIViewController {
       self.mapView.removeAnnotations(self.mapView.annotations)
       self.mapView.addAnnotation(annotation)
       self.mapView.setCenter(coordinate, animated: true)
+    }
+    
+    self.viewModel.geocodingError.bind = { [weak self] in
+      guard let self = self else { return }
+      guard $0 != nil else { return }
+      self.closePopup()
     }
   }
   

@@ -34,6 +34,7 @@
 		F7FDBDF8232283EC00BA15E5 /* Double+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FDBDF7232283EC00BA15E5 /* Double+Formatting.swift */; };
 		F7FDBDFA232355B500BA15E5 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FDBDF9232355B500BA15E5 /* Api.swift */; };
 		F7FDBDFC2326220900BA15E5 /* WeatherImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FDBDFB2326220900BA15E5 /* WeatherImages.swift */; };
+		F7FDBDFE2328ECF700BA15E5 /* WeatherState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FDBDFD2328ECF700BA15E5 /* WeatherState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		F7FDBDF7232283EC00BA15E5 /* Double+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Formatting.swift"; sourceTree = "<group>"; };
 		F7FDBDF9232355B500BA15E5 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		F7FDBDFB2326220900BA15E5 /* WeatherImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherImages.swift; sourceTree = "<group>"; };
+		F7FDBDFD2328ECF700BA15E5 /* WeatherState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				F71858E4231FDE1300288E99 /* WeatherViewController.swift */,
 				F71858E5231FDE1300288E99 /* WeatherViewController.xib */,
 				F71858EF2320B26700288E99 /* WeatherViewModel.swift */,
+				F7FDBDFD2328ECF700BA15E5 /* WeatherState.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				F71858F02320B26700288E99 /* WeatherViewModel.swift in Sources */,
 				F71858EE2320AAA200288E99 /* Weather.swift in Sources */,
 				F71858E6231FDE1300288E99 /* WeatherViewController.swift in Sources */,
+				F7FDBDFE2328ECF700BA15E5 /* WeatherState.swift in Sources */,
 				F7FDBDFA232355B500BA15E5 /* Api.swift in Sources */,
 				F729D3D6231E1B2F003A2490 /* MapViewController.swift in Sources */,
 				F729D3D1231E1743003A2490 /* AppCoordinator.swift in Sources */,
