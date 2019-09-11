@@ -17,6 +17,8 @@ class WeatherViewController: UIViewController {
   @IBOutlet private weak var weatherIconImageView: UIImageView!
   @IBOutlet private weak var weatherImageView: UIImageView!
   @IBOutlet private weak var degreesIconView: UIView!
+  @IBOutlet private weak var temperatureLabelTopConstraint: NSLayoutConstraint!
+  @IBOutlet weak var weatherIconImageViewHeightConstraint: NSLayoutConstraint!
   
   private enum WeatherConstants {
     static let errorAlertTitle = "Error!"
@@ -80,6 +82,12 @@ class WeatherViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    if UIScreen.main.bounds.height < 600 {
+      temperatureLabel.font = temperatureLabel.font.withSize(60)
+      temperatureLabelTopConstraint.constant = 0
+      weatherIconImageViewHeightConstraint.constant = 60
+    }
     
     degreesIconView.layer.borderWidth = 3
     degreesIconView.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7).cgColor
