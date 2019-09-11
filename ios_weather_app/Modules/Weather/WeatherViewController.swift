@@ -18,7 +18,7 @@ class WeatherViewController: UIViewController {
   @IBOutlet private weak var weatherImageView: UIImageView!
   @IBOutlet private weak var degreesIconView: UIView!
   @IBOutlet private weak var temperatureLabelTopConstraint: NSLayoutConstraint!
-  @IBOutlet weak var weatherIconImageViewHeightConstraint: NSLayoutConstraint!
+  @IBOutlet private weak var weatherIconImageViewHeightConstraint: NSLayoutConstraint!
   
   private enum WeatherConstants {
     static let errorAlertTitle = "Error!"
